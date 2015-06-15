@@ -77,10 +77,8 @@ angular
               if($scope.emailLog == data.mail && $scope.passLog == data.password){
                 $rootScope.user = userService;
                 $rootScope.user.signIn(data);
-                $scope.closeModal(function(){
-                  $location.url('/home');
-                });
-                //
+                $scope.closeModal();
+                $location.url('/home');
               }
                
         

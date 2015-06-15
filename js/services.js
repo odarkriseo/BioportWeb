@@ -10,7 +10,7 @@ angular.module('BioportServices', ['ngCookies'])
         isConnected: function() {
     
           
-          if($cookieStore.get('userConnected') == 'undefined'){
+          if($cookieStore.get('userConnected') !== 'undefined'){
 
               var idUser = $cookieStore.get('userConnected');
               
