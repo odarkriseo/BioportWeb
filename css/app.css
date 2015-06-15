@@ -1,0 +1,149 @@
+body{
+	padding-top:69px;
+}
+.navbar.navbar-default.navbar-fixed-top.ng-scope{
+	background-color:white;
+	border-bottom:10px solid #409b88;
+}
+.navbar-default .navbar-nav > li > a{
+	color:#409b88;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a{
+	color:#7b8a8b;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover{
+	color:white;
+	background-color:#409b88;
+}
+div.navbar.navbar-default.navbar-fixed-top.ng-scope div.container div.navbar-header a.navbar-brand{
+	padding:0;
+}
+#carousel-example-generic.carousel.slide{
+	height:400px;
+	overflow:hidden;
+}
+.navbar.navbar-default.navbar-fixed-top.ng-scope div.container div#navbar-main.navbar-collapse.collapse #secondUlNavBar li{
+	margin-top:8px;
+}
+ul.dropdown-menu li:hover{
+	color:white;
+}
+.form-inline .input-group > .form-control.pre-input{
+	width:75%;
+}
+.glyphicon.pmr{
+	padding-right: 10px;
+}
+.post-input{
+	width:25%;
+	height: 45px;
+}
+.carousel-caption{
+	left:10%;
+	text-align:left;
+	top:150px;
+
+}
+.carousel-caption h1{
+	color:#409b88;
+	font-weight:bold;
+	text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+	font-size:52px;
+}
+.carousel-indicators{
+	width:100%;
+	margin:0;
+	left:0;
+	bottom:0;
+	height:10px;
+	background-color:white;
+	padding:0;
+}
+.carousel-indicators li{
+	display:block;
+	float:left;
+	width:33.33%;
+	height:10px;
+	padding:0;
+	margin: 0;
+	border:none;
+	border-radius:0;
+	background-color:transparent;
+	transition:all .3s;
+}
+.carousel-indicators li:hover,.carousel-indicators li.active{
+	display:block;
+	float:left;
+	width:33.33%;
+	height:10px;
+	padding:0;
+	margin: 0;
+	border:none;
+	border-radius:0;
+	transition:.3s;
+	background-color: #409b88;
+}
+#presentOffers{
+	padding-top:20px;
+	background-attachment: fixed;
+background-color: #eeeeee;
+background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+}
+
+.ico-bioport{
+	padding-right:10px;
+}
+.modal-header{
+	padding: 11px 20px 5px 20px;
+}
+.modal-title{
+	line-height: 2.2em;
+	font-size:1.7em;
+}
+.pam{
+    padding: 10px;
+}
+
+.contentOffer{
+	background-color: #f5f5f5;
+    border: 1px solid #e2e2e2;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 19px;
+}
+.headOffer{
+	 border: 1px solid #e2e2e2;
+    border-bottom:none;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 0;
+    padding:15px;
+    background-color:white;
+}
+.primaryBG{
+	color: white;
+	background-color: #409b88;
+	border: none;
+}
+.secondaryBG{
+	color: white;
+	background-color: #409FCE;
+	border: none;
+}
+.tertiaryBG{
+	color: white;
+	background-color:#F39C12;
+	border: none;
+}
+.bgFixLarge{
+	
+	background-attachment: fixed;
+	background-image:url("../lib/img/IS09AQ4B0.jpg");
+	background-position:center right;
+	background-color:rgba(255,255,255,.5);
+}
+.bgFixLarge .page-header{
+ padding:50px;
+ background-color: rgba(255, 255, 255, 0.65);
+}
