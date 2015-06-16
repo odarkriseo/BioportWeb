@@ -19,6 +19,63 @@
   <script src="/js/directives.js"></script>
 </head>
 <body ng-controller="MainCtrl">
+  <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="#/" class="navbar-brand"><img src="lib/img/bioport_sans_ss_titre.jpg" alt="Logo Bioport" style="height:inherit"/></a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul  id="firstUlNavBar" class="nav navbar-nav">
+            <li ng-if="isLogged" class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list pmr"></span> Menu <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a href="#/account"><span class="glyphicon glyphicon-user pmr"></span> Account</a></li>
+                <li class="divider"></li>
+                <li><a href="#/account"><span class="glyphicon glyphicon-credit-card pmr"></span> My orders</a></li>
+                <li class="divider"></li>
+                <li><a href="#/account"><span class="glyphicon glyphicon-envelope pmr"></span> Messages</a></li>
+                <li><a href="#/account">Collections</a></li>
+                <li><a href="#/account">Samples</a></li>
+                <li><a href="#/account">Groups</a></li>
+                <li><a href="#/account">Locations</a></li>
+                <li><a href="#/account">Settings</a></li>
+                <li></li>
+              </ul>
+            </li>  
+          </ul>
+          <ul id="secondUlNavBar" class="nav navbar-nav">
+            <li>
+              <form class="form-inline">
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control pre-input" id="exampleInputAmount" placeholder="Search something">
+                
+                  <button type="submit" class="input-group-addon post-input"><span class="glyphicon glyphicon-search" ></span></button>
+                </div>
+              </div>
+            </form>
+            </li>
+          </ul>
+          <ul id="thirdUlNavBar" class="nav navbar-nav navbar-right">
+            <li ng-if="!isLogged">
+              <a href="#/offers">Sign in</a>
+            </li>
+            <li ng-if="!isLogged">
+              <a data-toggle="modal" data-target="#logInModal" href="#" id="logIn">Log in</a>
+            </li>
+            <li ng-if="isLogged">
+              <a ng-click="logOut()" href="#" id="logOut">Log out</a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
   <div ng-view></div>
     
     <script src="lib/bootstrap.js"></script>

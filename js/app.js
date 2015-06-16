@@ -27,9 +27,13 @@ app.config(['$routeProvider',
         controller: 'AccountCtrl',
         authorized: true
       }).
-      when('/offers', {
-        templateUrl: 'partials/offers.html',
-        controller: 'offersCtrl'
+      when('/signup', {
+        templateUrl: 'partials/signup.html',
+        controller: 'signupCtrl'
+      }).
+      when('/subscribe', {
+        templateUrl: 'partials/subscribe.html',
+        controller: 'subscribeCtrl'
       }).
       when('/search', {
         templateUrl: 'partials/search.html',
@@ -53,8 +57,7 @@ app.config(['$routeProvider',
   }])
   .run(function($rootScope, $location, userService) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-      $rootScope.userConnected = userService.isConnected();
-      console.log("listener de routes : user connecté : "+ $rootScope.userConnected);
+      
         if (next.$$route.authorized  && !userService.isConnected()) {
 
             $location.url("/connexion?returnUrl=" + $location.path());

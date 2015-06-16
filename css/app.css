@@ -1,7 +1,7 @@
 body{
 	padding-top:69px;
 }
-.navbar.navbar-default.navbar-fixed-top.ng-scope{
+.navbar.navbar-default.navbar-fixed-top{
 	background-color:white;
 	border-bottom:10px solid #409b88;
 }
@@ -15,14 +15,14 @@ body{
 	color:white;
 	background-color:#409b88;
 }
-div.navbar.navbar-default.navbar-fixed-top.ng-scope div.container div.navbar-header a.navbar-brand{
+div.navbar.navbar-default.navbar-fixed-top div.container div.navbar-header a.navbar-brand{
 	padding:0;
 }
 #carousel-example-generic.carousel.slide{
 	height:400px;
 	overflow:hidden;
 }
-.navbar.navbar-default.navbar-fixed-top.ng-scope div.container div#navbar-main.navbar-collapse.collapse #secondUlNavBar li{
+.navbar.navbar-default.navbar-fixed-top div.container div#navbar-main.navbar-collapse.collapse #secondUlNavBar li{
 	margin-top:8px;
 }
 ul.dropdown-menu li:hover{

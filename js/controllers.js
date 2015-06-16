@@ -5,7 +5,7 @@
 angular
   .module('BioportControllers', [])
   .controller('MainCtrl', ['$scope','userService', function($scope,userService) {
-    
+  
     $scope.slider = 
     [ 
       {

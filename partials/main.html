@@ -1,60 +1,4 @@
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="../" class="navbar-brand"><img src="lib/img/bioport_sans_ss_titre.jpg" alt="Logo Bioport" style="height:inherit"/></a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul  id="firstUlNavBar" class="nav navbar-nav">
-            <li ng-if="isLogged" class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list pmr"></span> Menu <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="#/account"><span class="glyphicon glyphicon-user pmr"></span> Account</a></li>
-                <li class="divider"></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-credit-card pmr"></span> My orders</a></li>
-                <li class="divider"></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-envelope pmr"></span> Messages</a></li>
-                <li><a href="#/account">Collections</a></li>
-                <li><a href="#/account">Samples</a></li>
-                <li><a href="#/account">Groups</a></li>
-                <li><a href="#/account">Locations</a></li>
-                <li><a href="#/account">Settings</a></li>
-                <li></li>
-              </ul>
-            </li>  
-          </ul>
-          <ul id="secondUlNavBar" class="nav navbar-nav">
-            <li>
-              <form class="form-inline">
-              <div class="form-group">
-                <div class="input-group">
-                  <input type="text" class="form-control pre-input" id="exampleInputAmount" placeholder="Search something">
-                
-                  <button type="submit" class="input-group-addon post-input"><span class="glyphicon glyphicon-search" ></span></button>
-                </div>
-              </div>
-            </form>
-            </li>
-          </ul>
-          <ul id="thirdUlNavBar" class="nav navbar-nav navbar-right">
-            <li ng-if="!isLogged">
-              <a href="#/offers">Sign in</a>
-            </li>
-            <li ng-if="!isLogged">
-              <a data-toggle="modal" data-target="#logInModal" href="#" id="logIn">Log in</a>
-            </li>
-            <li ng-if="isLogged">
-              <a ng-click="logOut()" href="#" id="logOut">Log out</a>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-    </div>
+    
 
 
 
@@ -108,7 +52,7 @@
         
                 <p class="lead">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
 
-                <a href="#" class="btn btn-default btn-block btn-lg"title="">SEARCH</a>
+                <a href="#/search" class="btn btn-default btn-block btn-lg"title="">SEARCH</a>
               </div>
               
             </div>
@@ -122,7 +66,7 @@
                   <p>The following snippet of text is <strong>rendered as bold text</strong>.</p>
                   <p>The following snippet of text is <em>rendered as italicized text</em>.</p>
                   <p>An abbreviation of the word attribute is <abbr title="attribute">attr</abbr>.</p>
-                  <a href="#" class="btn btn-success btn-block btn-lg"title="">SIGN IN</a>
+                  <a href="#/signup" class="btn btn-success btn-block btn-lg"title="">SIGN IN</a>
               </div>
             </div>
           </div>
@@ -136,7 +80,7 @@
                 <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
                 <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
                 <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                <a href="#" class="btn btn-success btn-block btn-lg"title="">SUSBSCRIBE</a>
+                <a href="#/subscribe" class="btn btn-success btn-block btn-lg"title="">SUSBSCRIBE</a>
               </div>
             </div>
           </div>
@@ -1272,6 +1216,9 @@
 
       </footer>
  </div>
+
+
+<!--/////////////////////////////////////////////LOGIN MODAL//////////////////////////////////////////////////////////////-->
 
     <div ng-controller="LoginCtrl" class="modal fade my-modal" id="logInModal" tabindex="-1" role="dialog"  aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
