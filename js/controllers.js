@@ -78,7 +78,7 @@ angular
                 $rootScope.user = userService;
                 $rootScope.user.signIn(data);
                 $scope.closeModal();
-                $location.url('/home');
+                //$location.url('/home');
               }
                
         

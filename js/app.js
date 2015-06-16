@@ -53,7 +53,8 @@ app.config(['$routeProvider',
   }])
   .run(function($rootScope, $location, userService) {
     $rootScope.$on("$routeChangeStart", function (event, next, current) {
-      console.log("listener de routes : user connecté : "+ userService.isConnected());
+      $rootScope.userConnected = userService.isConnected();
+      console.log("listener de routes : user connecté : "+ $rootScope.userConnected);
         if (next.$$route.authorized  && !userService.isConnected()) {
 
             $location.url("/connexion?returnUrl=" + $location.path());
