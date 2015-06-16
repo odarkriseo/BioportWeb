@@ -1246,6 +1246,12 @@
                   <input ng-model="rememberMeLog" type="checkbox"> Remember me
                 </label>
               </div>
+              <div class="alert alert-dismissible alert-warning">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h4>Notice de connexion :</h4>
+                <p>Veuillez à actualiser la page avec F5 après le clic sur "Log in" pendant la période de développement purement cliente.</p><p>Une fois la partie serveur en place, cette manipulation ne sera plus nécessaire.<br/>
+                Email : bioport@bioport.com , Password : bioport</p>
+              </div>
               <div class="row">
                 <div class="col-lg-8 col-md-8 col-sm-6">
                   <button type="submit" ng-click="connect()" class="btn btn-block btn-primary">Log in</button>

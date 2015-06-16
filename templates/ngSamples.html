@@ -11,18 +11,24 @@
 		                <li></li>
 		              </ul>
 		            </li> 
-	             	<li>
+	             	<li style="margin-bottom:15px">
 	             		<button class="btn btn-default btn-block ajoutItem">Add a sample <span class="glyphicon glyphicon-plus iconAjout"></span></button>
 	             	</li>
-	             	<li ng-repeat="sample in samples">
-	             		<a href=""></a>
+	             	<li ng-repeat="sample in samples" class="">
+		             	<div class="pull-left">
+		             		<img src="{{sample.image}}" alt="" style="max-width:60px;" class="block pmr ">
+		             	</div>
+		             	<div class="pull-left" style="margin-left:25px">
+		             		<div class="row">
+		             			<a href="" style="font-size:1.3em" class="block pml"> <span>{{sample.name}}</span></a>
+		             		</div>
+		             		<div class="row">
+		             			<small><a href="" style="margin-left:10px" class="block pml">{{sample.collection}}</a></small>
+		             		</div>
+		             	</div>
+	          			<hr style="clear:both" />
 	             	</li>
-	             	<li>
-	             		<a href=""></a>
-	             	</li>
-	             	<li>
-	             		<a href=""></a>
-	             	</li>
+	             	
 	             </ul>
 	</div>
 	<div class="col-lg-9 col-md-9 col-sm-9 well ng-resizable ui-widget-content">

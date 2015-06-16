@@ -171,6 +171,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	padding: 8px;
 	float: right;
 }
-.nav.nav-pills.nav-stacked {
+.accountCtrl .nav.nav-pills.nav-stacked {
 	border-right: 1px solid #e2e2e2;
+
 }

@@ -146,7 +146,44 @@ angular
     
   }])
   .controller('SampleCtrl', ['$scope', function($scope) {
-    
+      $scope.samples=
+      [
+        {
+          name:'collocius Malificius',
+          collection:'Champignon',
+          image:'../lib/img/biotech.jpg'
+        },
+        {
+          name:'gelicius Morqus',
+          collection:'Champignon',
+          image:'../lib/img/biotech.jpg'
+
+        },
+        {
+          name:'trompette de la mort',
+          collection:'Champignon',
+          image:'../lib/img/biotech.jpg'
+
+        },
+        {
+          name:'champignon de paris',
+          collection:'Champignon',
+          image:'../lib/img/biotech.jpg'
+
+        },
+        {
+          name:'ebola',
+          collection:'Virus',
+          image:'../lib/img/biotech.jpg'
+
+        },
+        {
+          name:'souche H1N1',
+          collection:'Virus',
+          image:'../lib/img/biotech.jpg'
+
+        }
+      ]
   }])
   .controller('GroupCtrl', ['$scope', function($scope) {
     
