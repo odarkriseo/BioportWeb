@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="lib/bootswatch.min.css">
   <link rel="stylesheet" href="css/app.css">
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <script src="/lib/angular.js"></script>
   <script src="/lib/angular-route.js"></script>
   <script src="/lib/angular-cookies.js"></script>
@@ -33,17 +34,8 @@
           <ul  id="firstUlNavBar" class="nav navbar-nav">
             <li ng-if="isLogged" class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-th-list pmr"></span> Menu <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="#/account"><span class="glyphicon glyphicon-user pmr"></span> Account</a></li>
-                <li class="divider"></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-credit-card pmr"></span> My orders</a></li>
-                <li class="divider"></li>
-                <li><a href="#/account"><span class="glyphicon glyphicon-envelope pmr"></span> Messages</a></li>
-                <li><a href="#/account">Collections</a></li>
-                <li><a href="#/account">Samples</a></li>
-                <li><a href="#/account">Groups</a></li>
-                <li><a href="#/account">Locations</a></li>
-                <li><a href="#/account">Settings</a></li>
+              <ul ng-controller="AccountCtrl"class="dropdown-menu" aria-labelledby="themes">
+                <li ng-repeat="menu in menus"><a href="#/account/{{menu.url}}"><span class="{{menu.iconClass}} pmr"></span> {{menu.title}}</a></li>
                 <li></li>
               </ul>
             </li>  

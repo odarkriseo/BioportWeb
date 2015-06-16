@@ -3,7 +3,8 @@ body{
 }
 .navbar.navbar-default.navbar-fixed-top{
 	background-color:white;
-	border-bottom:10px solid #409b88;
+	border-bottom: 2px solid #e2e2e2;
+box-shadow: 0 0 4px #e2e2e2;
 }
 .navbar-default .navbar-nav > li > a{
 	color:#409b88;
@@ -33,6 +34,9 @@ ul.dropdown-menu li:hover{
 }
 .glyphicon.pmr{
 	padding-right: 10px;
+}
+.glyphicon.pml{
+	padding-left: 10px;
 }
 .post-input{
 	width:25%;
@@ -146,4 +150,27 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 .bgFixLarge .page-header{
  padding:50px;
  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.clickable{
+	cursor:pointer;
+}
+
+.panel-default h3{
+	margin-top:0;
+	padding-top:10px;
+}
+
+.accountPersonalisation .accountCtrlListItem button.ajoutItem{
+	font-size: 1.1em;
+	line-height: 39px;
+}
+.accountPersonalisation .accountCtrlListItem button.ajoutItem .iconAjout{
+	border: 1px solid white;
+	border-radius: 50%;
+	padding: 8px;
+	float: right;
+}
+.nav.nav-pills.nav-stacked {
+	border-right: 1px solid #e2e2e2;
 }

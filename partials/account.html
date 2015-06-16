@@ -1,1 +1,74 @@
-<h1>Your are on your account page</h1>
+<div ng-controller="AccountCtrl">
+	<div class="row">
+		<div class="col-lg-2 col-md-3 ng-resizable ui-widget-content">
+			<ul class="nav nav-pills nav-stacked ">
+			  	<li ng-repeat="menu in menus" class="{{menu.active}}" >
+			  		<a href="#/account/{{menu.url}}">
+			  			<span class="{{menu.iconClass}} pmr"></span> {{menu.title}}
+			  		</a>
+			  	</li>	
+			</ul>
+		</div>
+		
+		<div ng-repeat="menu in menus" class="col-lg-10 col-md-9" ng-show="menu.active" >
+			<h1>{{menu.title}} <span class="glyphicon glyphicon-info-sign pml clickable" style="font-size:0.4em" ng-click="infos()"></span></h1>
+			<div class="alert alert-dismissible panel-default" ng-show="info">
+             
+                <button type="button" class="close" class="pull-right" data-dismiss="alert">&times;</button>
+                <h3><strong>How to use it ? Simple !</strong></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                Dr Higer Hashes, in New York Times</p>
+              
+            </div>
+            <div class="accountPersonalisation" ng-include src="menu.template">
+             	{{blah}}
+            </div>
+             
+		</div>
+	</div>
+	
+
+</div>
+
+<!-- <my-tabs>
+  <my-pane title="Account">
+    <h4>Notifications</h4>
+    <p>Lorem ipsum dolor sit amet</p>
+  </my-pane>
+  <my-pane title="My orders">
+    <h4>My Orders</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Messages">
+    <h4>My Messages</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Collections">
+    <h4>My Collections</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Samples">
+    <h4>My Samples</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Groups">
+    <h4>My User groups</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Samples">
+    <h4>My Locations</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+  <my-pane title="Settings">
+    <h4>My settings</h4>
+    <em>Mauris elementum elementum enim at suscipit.</em>
+    <p><a href ng-click="i = i + 1">counter: {{i || 0}}</a></p>
+  </my-pane>
+</my-tabs> -->
+

@@ -13,6 +13,8 @@ db.once('open', function (callback) {
    
     console.log('Connection ok');
 
+
+/*///////////////////////////////////////////////////USERS////////////////////////////////////////////////////////////*/
 	var usersSchema = new mongoose.Schema({
 	    lastName: String,
 	    firstName: String,
@@ -35,34 +37,53 @@ db.once('open', function (callback) {
 	});
 
 
-	var user = mongoose.model('users', usersSchema);
+	var users = mongoose.model('users', usersSchema);
 
-	// Affiche la liste des bières
+	// recupere un compte avec grace aux id en param de l'url
 	app.get('/login/m=:mail&p=:mdp', function (req, res)
-	{		console.log("req.params.mail : '"+req.params.mail+"'");
+	{		//console.log("req.params.mail : '"+req.params.mail+"'");
 		
 		//res.send('Liste des bières');
 
-		user.findOne({$and:[{mail:req.params.mail},{password:req.params.mdp}]},{mail:1,password:1},function (err, b) {
+		users.findOne({$and:[{mail:req.params.mail},{password:req.params.mdp}]},{mail:1,password:1},function (err, b) {
 		if (err) return console.error("ERREUR : app.get('/users'..) -> "+err);
-		console.log(b);
+		//console.log(b);
 		res.send(b);
 		});
 
 	});
 
-	app.get('/getIdUsers/i=:id', function (req, res)
+/*///////////////////////////////////////////////////COLLECTION///////////////////////////////////////*/
+
+var collectionsSchema = new mongoose.Schema({
+	    lastName: String,
+	    firstName: String,
+	    mail: String,
+	    addresses: [{
+	    	street:String,
+	        city: String, 
+	        country:String,
+	        cp :Number
+	                }],  
+	    company:String,
+	    birthdate:Date,
+	    currency: String,
+	    password:String,
+	    cart:Array,
+	    accountType:String,  
+	    registrationDate:Date,
+	    subscriptionDate:Date,
+	    suppressionDate:Date
+	});
+
+var collections = mongoose.model('collections', collectionsSchema);
+
+	app.get('/collection/limit=:limit', function (req, res)
 	{		//console.log(req);
-		var idd;
-		user.findOne({$and:[{mail:"bioport@bioport.com"},{password:"bioport"}]},{mail:1,password:1},function (err, b) {
-		if (err) return console.error("ERREUR : app.get('/users'..) -> "+err);
-			console.log(b._id);
-			var idd = b._id; // me retourne un id valable que j'insère ensuite dans la requète par id
-			user.findOne({_id:idd},function (err, c) {
-			if (err) return console.error("ERREUR : app.get('/users'..) -> "+err);
-			console.log(c);// qui me retourne un null :/
-			res.send(c);
-		});
+		
+		var q = user.find().limit(10);
+		q.execFind(function (err, b) {
+			res.send(b);
 		});
 
 		
@@ -70,20 +91,6 @@ db.once('open', function (callback) {
 	});
 
 
-	// Affiche une bière
-	app.get('/beers/:aBeer', function (req, res)
-	{
-		console.log('Test' + req.params.aBeer);
-		beer.findOne({ id: req.params.aBeer }, function (err, b) {
-		if (err){
-			console.log(err);
-			return console.error("ERREUR : app.get('/beers/:aBeer'..) -> "+err);
-		} 
-		console.log("recu : '"+b+"'");
-		res.send(b);
-		});
-
-	});
 
 
 
@@ -92,19 +99,6 @@ db.once('open', function (callback) {
 });
 
 	
-
-/*var BeersList = mgdb.model('Beers', yourSchema);
-
-
-	app.get('/beers', function (req, res)
-	{
-		res.send('Liste des bières');
-	});
-
-	app.get('/beers/:aBeer', function (req, res)
-	{
-		res.send('Bière : ' + req.params.aBeer);
-	});*/
 
 
 

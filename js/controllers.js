@@ -40,32 +40,127 @@ angular
     }else{
        $scope.isLogged = false;
     }
-    
+    $scope.dynamicCtrl = 'MessageCtrl';
     $scope.logOut = function(){
       $scope.user.signOut();
       $scope.isLogged = false;
     }
 
   }])
-  .controller('HomeCtrl', ['$scope', function($scope) {
+  .controller('AccountCtrl', ['$scope','$routeParams', function($scope,$routeParams) {
+    
+    $scope.info =false;
+    //$scope.controller = [HomeCtrl,OrderCtrl,MessageCtrl,CollectionCtrl,SampleCtrl,GroupCtrl,LocationCtrl,SettingCtrl];
+    $scope.menus = 
+    [
+      {
+          active :"",
+          url : "home",
+          iconClass : "glyphicon glyphicon-home",
+          title : "Home",
+          template :"../templates/ngHome.html"
+      },
+      {
+          active :"",
+          url : "orders",
+          iconClass : "glyphicon glyphicon-credit-card",
+          title : "Orders",
+          template :"../templates/ngOrders.html"
+      },
+      {
+          active :"",
+          url : "messages",
+          iconClass : "glyphicon glyphicon-envelope",
+          title : "Messages",
+          template :"../templates/ngMessages.html"
+      },
+      {
+          active :"",
+          url : "collections",
+          iconClass : "",
+          title : "Collections",
+          template :"../templates/ngCollections.html"
+      },
+      {
+          active :"",
+          url : "samples",
+          iconClass : "",
+          title : "Samples",
+          template :"../templates/ngSamples.html"
+      },
+      {
+          active :"",
+          url : "groups",
+          iconClass : "",
+          title : "Groups",
+          template :"../templates/ngGroups.html"
+      },
+      {
+          active :"",
+          url : "locations",
+          iconClass : "",
+          title : "Locations",
+          template :"../templates/ngLocations.html"
+      },
+      {
+          active :"",
+          url : "settings",
+          iconClass : "",
+          title : "Settings",
+          template :"../templates/ngSettings.html"
+      }
+    ]
 
+    for(var i=0;i< $scope.menus.length;i++){
+      $scope.menus[i].active = '';
+      if($scope.menus[i].url == $routeParams.menu){
+        $scope.menus[i].active = 'active';
+      }
+    }
+
+    $scope.infos = function(){
+      $scope.info = !$scope.info;
+    }
   }])
-  .controller('AccountCtrl', ['$scope', function($scope) {
+  .controller('SignUpCtrl', ['$scope', function($scope) {
+    
+  }])
+  .controller('SubscribeCtrl', ['$scope', function($scope) {
     
   }])
   .controller('SearchCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('CollectionCtrl', ['$scope', function($scope) {
+  .controller('CollectionCtrl', ['$scope','$http', function($scope,$http) {
+      $scope.blah = "cooollectionnn";
+    $http.get('http://localhost:1337/collection/limit=10').success(function(data){
+
+    }).error(function(e){
+
+    });
+  }])
+  .controller('OrderCtrl', ['$scope', function($scope) {
+    
+  }])
+  .controller('HomeCtrl', ['$scope', function($scope) {
     
   }])
   .controller('SampleCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('AccountCtrl', ['$scope', function($scope) {
+  .controller('GroupCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('LoginCtrl',['$scope','$rootScope','$http','$location','userService',function($scope,$rootScope,$http,$location,userService){
+  .controller('MessageCtrl', ['$scope', function($scope) {
+    $scope.blah="meeessage";
+  }])
+  .controller('SettingCtrl', ['$scope', function($scope) {
+    
+  }])
+  .controller('LocationCtrl', ['$scope', function($scope) {
+    
+  }])
+  .controller('LoginCtrl',['$scope','$rootScope','$http','$location','$timeout','userService',function($scope,$rootScope,$http,$location,$timeout,userService){
     
     $scope.rememberMeLog = false;
     $scope.connect = function(){
@@ -78,9 +173,11 @@ angular
                 $rootScope.user = userService;
                 $rootScope.user.signIn(data);
                 $scope.closeModal();
-                //$location.url('/home');
-              }
                
+                
+                
+              }
+              
         
         }).error(function(e){
           console.log(e);

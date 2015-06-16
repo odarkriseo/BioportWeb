@@ -1,0 +1,6 @@
+id,first_name,last_name,DrugType,country,ip_address,frequency,colorA,sick,macx
+1,Michael,West,Meperidine Hydrochloride,Bulgaria,237.20.227.101,Once,#dc3164,,2D-38-52-C3-F6-DA
+2,Richard,Murphy,,Spain,123.143.2.220,Once,#645e21,true,FF-77-C0-74-DB-43
+3,Steven,Mason,DIACETYL BENZOYL LATHYROL,South Africa,,Never,#5cdc63,false,
+"4,Michael,Mcdonald,""HGH, Hepar suis, Pituitary suis,"",Poland,214.143.74.204,Yearly,#d99d98,true,E7-78-00-A8-1B-6E"
+5,Donna,Hall,rumex crispus pollen,Brazil,153.148.135.45,Seldom,#229d21,false,F9-7A-E2-EA-3E-66

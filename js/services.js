@@ -3,7 +3,7 @@
 /* Services */
 
 angular.module('BioportServices', ['ngCookies'])
-  .service("userService",['$cookies','$cookieStore','$rootScope','$http', function($cookies,$cookieStore,$rootScope,$http) {
+  .service("userService",['$cookies','$cookieStore','$route','$rootScope','$http', function($cookies,$cookieStore,$route,$rootScope,$http) {
     $rootScope.logged = false;
         
     this.isConnected = function() {
@@ -20,7 +20,7 @@ angular.module('BioportServices', ['ngCookies'])
               return $http.get('http://localhost:1337/login/m='+ mail+'&p='+ pass).success(function(data) {
                
                     $rootScope.logged = (mail == data.mail) && (pass == data.password);
-                    console.log("connecté : "+ $rootScope.logged);
+                    //console.log("connecté : "+ $rootScope.logged);
                     return $rootScope.logged;
                 
               })
@@ -28,18 +28,18 @@ angular.module('BioportServices', ['ngCookies'])
           }else{
             return false;
           }
-            //return $cookies.get('userConnected');
+   
         };
     this.signIn = function(id) {
           if($cookieStore.get('userConnected') !== undefined){
             $cookieStore.remove('userConnected');
           }
             $cookieStore.put('userConnected',id.mail+';'+id.password);
-            
         
             $rootScope.logged = true;
-            console.log($rootScope);
+            //console.log($rootScope);
             $rootScope.$broadcast("connectionStateChanged");
+            
         };
     this.signOut = function() {
             if($cookieStore.get('userConnected') !== 'undefined'){
@@ -47,7 +47,7 @@ angular.module('BioportServices', ['ngCookies'])
           }
 
              $rootScope.logged = false;
-             console.log($rootScope);
+             //console.log($rootScope);
              $rootScope.$broadcast("connectionStateChanged");
         }
     

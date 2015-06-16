@@ -18,28 +18,20 @@ app.config(['$routeProvider',
         templateUrl: 'partials/main.html',
         controller: 'MainCtrl'
       }).
-      when('/home', {
-        templateUrl: 'partials/home.html',
-        controller: 'HomeCtrl'
-      }).
-      when('/account', {
+      when('/account/:menu', {
         templateUrl: 'partials/account.html',
         controller: 'AccountCtrl',
         authorized: true
       }).
       when('/signup', {
         templateUrl: 'partials/signup.html',
-        controller: 'signupCtrl'
+        controller: 'SignUpCtrl'
       }).
       when('/subscribe', {
         templateUrl: 'partials/subscribe.html',
-        controller: 'subscribeCtrl'
+        controller: 'SubscribeCtrl'
       }).
-      when('/search', {
-        templateUrl: 'partials/search.html',
-        controller: 'SearchCtrl'
-      }).
-      when('/search/query=:query', {
+      when('/search/q=:query', {
         templateUrl: 'partials/search.html',
         controller: 'SearchCtrl'
       }).

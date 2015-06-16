@@ -1,0 +1,31 @@
+<div ng-controller="SampleCtrl">
+	<div class="col-lg-3 col-md-3 col-sm-3 ng-resizable ui-widget-content">
+
+	             <ul class="nav nav-pills nav-stacked accountCtrlListItem">
+	             	<li class="dropdown">
+		              <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-filter pull-left pmr"></span> Filter by <span class="caret pull-right"></span></a>
+		              <ul ng-controller="AccountCtrl"class="dropdown-menu" aria-labelledby="themes">
+		                <li><a href="">Collection</a></li>
+		                <li><a href="">Creation Date</a></li>
+		                <li><a href="">Alphabetical</a></li>
+		                <li></li>
+		              </ul>
+		            </li> 
+	             	<li>
+	             		<button class="btn btn-default btn-block ajoutItem">Add a sample <span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             	</li>
+	             	<li ng-repeat="sample in samples">
+	             		<a href=""></a>
+	             	</li>
+	             	<li>
+	             		<a href=""></a>
+	             	</li>
+	             	<li>
+	             		<a href=""></a>
+	             	</li>
+	             </ul>
+	</div>
+	<div class="col-lg-9 col-md-9 col-sm-9 well ng-resizable ui-widget-content">
+				ITEM SAMPLE
+	</div>
+</div>
