@@ -3,18 +3,15 @@
 
 	             <ul class="nav nav-pills nav-stacked accountCtrlListItem">
 	             	<li class="dropdown">
-		              <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-filter pull-left pmr"></span> Filter by <span class="caret pull-right"></span></a>
+		              <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-filter pull-left pmr"></span> Filter by <span ng-bind="filterSelected"></span><span class="caret pull-right"></span></a>
 		              <ul ng-controller="AccountCtrl"class="dropdown-menu" aria-labelledby="themes">
-		                <li><a href="">Collection</a></li>
-		                <li><a href="">Creation Date</a></li>
-		                <li><a href="">Alphabetical</a></li>
-		                <li></li>
+		                <li ng-repeat="filter in filters" ng-click="tri(filter)" >{{filter}}</li>
 		              </ul>
 		            </li> 
 	             	<li style="margin-bottom:15px">
-	             		<button class="btn btn-default btn-block ajoutItem">Add a sample <span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             		<button ng-click="sampleSelected=false"class="btn btn-default btn-block ajoutItem">Add a sample <span class="glyphicon glyphicon-plus iconAjout"></span></button>
 	             	</li>
-	             	<li ng-repeat="sample in samples" class="">
+	             	<li ng-repeat="sample in samples | orderBy:filterSelected" class="{{sample.active}}" ng-click="select(sample)">
 		             	<div class="pull-left">
 		             		<img src="{{sample.image}}" alt="" style="max-width:60px;" class="block pmr ">
 		             	</div>
@@ -23,15 +20,26 @@
 		             			<a href="" style="font-size:1.3em" class="block pml"> <span>{{sample.name}}</span></a>
 		             		</div>
 		             		<div class="row">
-		             			<small><a href="" style="margin-left:10px" class="block pml">{{sample.collection}}</a></small>
+		             			<small><span style="font-size:1.5em" class="ion-social-dropbox-outline pmr"></span><a href="" style="margin-left:10px" class="block pml">{{sample.collection}}</a></small>
 		             		</div>
 		             	</div>
-	          			<hr style="clear:both" />
+	          			<hr style="clear:both;visibility:hidden;" />
 	             	</li>
 	             	
 	             </ul>
 	</div>
 	<div class="col-lg-9 col-md-9 col-sm-9 well ng-resizable ui-widget-content">
-				ITEM SAMPLE
+				<div ng-show="sampleSelected" class="jumbotron" style="font-size:0.7em;">
+				  <h1>Hello, {{sampleSelected.name}} !</h1>
+				  <p>Your collection is : {{sampleSelected.collection}}</p>
+				  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+				</div>
+				<div ng-hide="sampleSelected" class="jumbotron" style="font-size:0.7em;">
+				  <h1>Hello, formulaire!</h1>
+				  <p>...</p>
+				  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+				</div>
+
 	</div>
+
 </div>

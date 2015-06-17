@@ -1,5 +1,5 @@
 body{
-	padding-top:69px;
+	padding-top:62px;
 }
 .navbar.navbar-default.navbar-fixed-top{
 	background-color:white;
@@ -163,15 +163,68 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 
 .accountPersonalisation .accountCtrlListItem button.ajoutItem{
 	font-size: 1.1em;
-	line-height: 39px;
+	line-height: 25px;
 }
 .accountPersonalisation .accountCtrlListItem button.ajoutItem .iconAjout{
 	border: 1px solid white;
 	border-radius: 50%;
-	padding: 8px;
+	padding: 6px;
 	float: right;
+	font-size:0.6em;
+}
+.accountCtrlRow{
+	margin-right:0;
+}
+.accountPersonalisation li.dropdown.open > ul > li{
+	padding:2px 15px;
+	cursor:pointer;
+}
+.accountPersonalisation li.dropdown.open > ul > li:hover{
+	background-color:#e2e2e2;
+	color:#409b88;
 }
 .accountCtrl .nav.nav-pills.nav-stacked {
 	border-right: 1px solid #e2e2e2;
 
+}
+.nav.nav-pills.nav-stacked > li{
+	border-bottom:1px solid #e2e2e2;
+}
+
+.nav-pills > li > a{
+	border-radius:0;
+}
+.nav-stacked > li + li{
+	margin-top:0;
+}
+.accountCtrlListItem li{
+	cursor:pointer;
+}
+.accountCtrlListItem li:first-child.dropdown{
+ border:1px solid #e2e2e2;
+}
+.accountCtrlListItem li:hover{
+	background-color:#f1f1f1;
+}
+.accountCtrlListItem li.active, .accountCtrlListItem li.active a{
+	background-color:#409b88;
+	color:white;
+}
+.accountCtrlListItem > li > hr{
+	margin:0;
+}
+.accountCtrlListItem > li img{
+	margin-top:6px;
+}
+.ion-social-dropbox{
+	font-size: 1.6em;
+	padding-right: 8px;
+	margin-top: -9px;
+	margin-bottom: -10px;
+	display: inline-block;
+}
+.ion-erlenmeyer-flask,.ion-person-stalker,.ion-gear-b,.ion-ionic,.ion-chatboxes{
+	padding-right: 9px;
+	padding-left:4px;
+	font-size:1.3em;
 }

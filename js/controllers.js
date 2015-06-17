@@ -70,42 +70,42 @@ angular
       {
           active :"",
           url : "messages",
-          iconClass : "glyphicon glyphicon-envelope",
+          iconClass : "ion-chatboxes",
           title : "Messages",
           template :"../templates/ngMessages.html"
       },
       {
           active :"",
           url : "collections",
-          iconClass : "",
+          iconClass : "ion-social-dropbox",
           title : "Collections",
           template :"../templates/ngCollections.html"
       },
       {
           active :"",
           url : "samples",
-          iconClass : "",
+          iconClass : "ion-erlenmeyer-flask",
           title : "Samples",
           template :"../templates/ngSamples.html"
       },
       {
           active :"",
           url : "groups",
-          iconClass : "",
+          iconClass : "ion-person-stalker",
           title : "Groups",
           template :"../templates/ngGroups.html"
       },
       {
           active :"",
           url : "locations",
-          iconClass : "",
+          iconClass : "ion-ionic",
           title : "Locations",
           template :"../templates/ngLocations.html"
       },
       {
           active :"",
           url : "settings",
-          iconClass : "",
+          iconClass : "ion-gear-b",
           title : "Settings",
           template :"../templates/ngSettings.html"
       }
@@ -146,6 +146,11 @@ angular
     
   }])
   .controller('SampleCtrl', ['$scope', function($scope) {
+      $scope.filters = ['name','collection'];
+      $scope.filterSelected = 'collection';
+      $scope.tri = function(fil){
+        $scope.filterSelected = fil;
+      }
       $scope.samples=
       [
         {
@@ -184,6 +189,18 @@ angular
 
         }
       ]
+
+      $scope.sampleSelected = false;
+
+      $scope.select = function(sample){
+        $scope.sampleSelected = sample;
+        for(var i=0;i< $scope.samples.length;i++){
+          $scope.samples[i].active = '';
+          if($scope.samples[i].name == sample.name){
+            $scope.samples[i].active = 'active';
+          }
+        }
+      }
   }])
   .controller('GroupCtrl', ['$scope', function($scope) {
     
