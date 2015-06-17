@@ -216,6 +216,63 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 .accountCtrlListItem > li img{
 	margin-top:6px;
 }
+.listItemImg{
+	max-width:60px;
+}
+.listItemContent{
+	margin-left:25px;
+}
+.listItemContentName{
+	font-size:1.3em;
+}
+.listIem:not(.active) .listItemContentInfo{
+	color:#888888;
+}
+.listItemContentInfo span{
+	font-size:1.5em;
+	
+}
+.listItemContentInfo a{
+	margin-left:10px;
+}
+.itemSelectedHeader{
+	font-size:1.1em;
+	position:relative;
+	
+	border:1px solid #e2e2e2;
+}
+.itemSelectedHeaderVisibility{
+	position:absolute;
+	z-index:1000;
+	top:10px;
+	right:10px;
+}
+.itemSelectedHeaderVisibility .btn-defaultModif{
+	padding:1px 5px;
+	width:31px;
+	font-size:20px;
+	color:#888888;
+	background-color:white;
+	border:1px solid #e2e2e2;
+
+}
+.itemSelectedHeaderDivImg{
+
+}
+.itemSelectedHeaderImg{
+	width: 100%;
+	padding: 5px;
+	margin: 10px;
+	min-height:120px;
+	border: 1px solid #e2e2e2;
+	background-color: white;
+}
+.itemSelectedHeaderContent{
+	padding-bottom:10px;
+}
+.itemSelectedHeaderContent p{
+	color:#888888;
+}
 .ion-social-dropbox{
 	font-size: 1.6em;
 	padding-right: 8px;
@@ -223,7 +280,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	margin-bottom: -10px;
 	display: inline-block;
 }
-.ion-erlenmeyer-flask,.ion-person-stalker,.ion-gear-b,.ion-ionic,.ion-chatboxes{
+.ion-erlenmeyer-flask,.ion-person-stalker,.ion-gear-b,.ion-ionic,.ion-chatboxes,.ion-earth,.ion-locked,.ion-merge{
 	padding-right: 9px;
 	padding-left:4px;
 	font-size:1.3em;

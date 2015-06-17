@@ -129,10 +129,9 @@ angular
     
   }])
   .controller('SearchCtrl', ['$scope', function($scope) {
-    
+    $scope.results=[{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
   }])
   .controller('CollectionCtrl', ['$scope','$http', function($scope,$http) {
-      $scope.blah = "cooollectionnn";
     $http.get('http://localhost:1337/collection/limit=10').success(function(data){
 
     }).error(function(e){
@@ -206,7 +205,7 @@ angular
     
   }])
   .controller('MessageCtrl', ['$scope', function($scope) {
-    $scope.blah="meeessage";
+  
   }])
   .controller('SettingCtrl', ['$scope', function($scope) {
     

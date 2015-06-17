@@ -42,95 +42,18 @@ angular.module('BioportDirectives', [])
       }
     };
   }])
-  .directive("ngDynamicController",function($compile){
-        return {
-            terminal: true, 
-            priority: 1000,
-            link:function(scope,element,attr){
-                var controllerProperty = scope[attr.ngDynamicController];
-                element.attr('ng-controller', controllerProperty);
-                element.removeAttr("ng-dynamic-controller"); 
-                $compile(element)(scope);
-            }
-        }
-    })
-  .directive('ngHome', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngHome.html',
-      scope:{},
-      transclude:true,
-      controller: function(){
+  .directive('ngSampleItem', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      sampleSelected:"="
+    },
+    controller: function($scope) {
+    },
+    templateUrl: '../templates/ngSampleItem.html'
+  };
+})
 
-      },
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngCollections', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngCollections.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngGroups', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngGroups.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngLocations', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngLocations.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngMessages', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngMessages.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngOrders', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngOrders.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngSamples', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngSamples.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
-  .directive('ngSettings', [function(){
-    return {
-      restrict: 'C',
-      templateUrl:'../templates/ngSettings.html',
-      link: function(scope, element, attributes) {
-        
-      }
-    };
-  }])
 /*  .directive('myTabs', function() {
   return {
     restrict: 'E',
