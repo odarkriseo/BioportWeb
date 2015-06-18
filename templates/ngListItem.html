@@ -1,0 +1,33 @@
+	<div class="col-lg-3 col-md-3 col-sm-3 ng-resizable ui-widget-content">
+
+	             <ul class="nav nav-pills nav-stacked accountCtrlListItem">
+	             	<li class="dropdown">
+		              <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-filter pull-left pmr"></span> Filter by <span ng-bind="filterSelected"></span><span class="caret pull-right"></span></a>
+		              <ul class="dropdown-menu" aria-labelledby="themes">
+		                <li ng-repeat="filter in filters" ng-click="tri(filter)" >{{filter}}</li>
+		              </ul>
+		            </li> 
+	             	<li style="margin-bottom:5px">
+	             		<button ng-click="select(false)"class="btn btn-default btn-block ajoutItem">Add a {{type.type}}<span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             	</li>
+	             	<li ng-repeat="item in list | orderBy:filterSelected" class="listItem {{item.active}}" ng-click="select(item)">
+		             	<div class="pull-left">
+		             		<img src="{{item.image}}" alt="" class="block pmr listItemImg">
+		             	</div>
+		             	<div class="pull-left listItemContent" >
+		             		<div class="row">
+		             			<a href="" class="listItemContentName" class="block pml"> <span>{{item.name}}</span></a>
+		             		</div>
+		             		<div class="row">
+		             			<small class="listItemContentInfo">
+		             				<span class="ion-social-dropbox-outline pmr"></span>
+		             				<a href="" class="block pml">{{item.collection || item.sampleNumber+" Samples"}}</a>
+		             			</small>
+		             		</div>
+		             	</div>
+	          			<hr style="clear:both;visibility:hidden;" />
+	             	</li>
+	             	
+	             </ul>
+	</div>
+	<ng-item item="itemSelected" type="type"></ng-item>

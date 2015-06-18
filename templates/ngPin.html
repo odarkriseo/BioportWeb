@@ -15,11 +15,11 @@
 			</div>
 	<div class="row">
 		<div class="col-lg-3 col-md-3 col-sm-3 itemSelectedHeaderDivImg" >
-			<img src="{{sampleSelected.image}}" alt="" class="itemSelectedHeaderImg"/>
+			<img src="{{itemSelected.image}}" alt="" class="itemSelectedHeaderImg"/>
 		</div>
 		<div class="col-lg-9 col-md-9 col-sm-9 itemSelectedHeaderContent">
-			<h1>{{sampleSelected.name}}</h1>
-		  	<p><span class="ion-social-dropbox"></span> {{sampleSelected.collection}}</p>
+			<h1>{{itemSelected.name}}</h1>
+		  	<p><span ng-class="{'ion-social-dropbox' : itemSelected.collection,'ion-erlenmeyer-flask':itemSelected.sampleNumber}"></span> {{itemSelected.collection || itemSelected.sampleNumber+" Samples"}}</p>
 		  
 			<button class="btn btn-info btn-sm" ><span class="glyphicon glyphicon-floppy-save pmr"></span> Export CSV</button>
 		</div>

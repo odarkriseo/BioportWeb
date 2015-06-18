@@ -15,13 +15,12 @@
 			<div class="alert alert-dismissible panel-default" ng-show="info">
              
                 <button type="button" class="close" class="pull-right" data-dismiss="alert">&times;</button>
-                <h3><strong>How to use it ? Simple !</strong></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-                Dr Higer Hashes, in New York Times</p>
+                <h3><strong>{{menu.infoHeader}}</strong></h3>
+                <p>{{menu.infoContent}}</p>
               
             </div>
             <div class="accountPersonalisation" ng-include src="menu.template">
-             	{{blah}}
+             
             </div>
              
 		</div>

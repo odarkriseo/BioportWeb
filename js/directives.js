@@ -42,15 +42,66 @@ angular.module('BioportDirectives', [])
       }
     };
   }])
-  .directive('ngSampleItem', function() {
+  .directive('ngListItem', function() {
   return {
     restrict: 'E',
     scope: {
-      sampleSelected:"="
+      list:"=",
+      type:"="
     },
     controller: function($scope) {
+
+      $scope.filters = $scope.type.filter;
+      $scope.filterSelected = $scope.type.filter[0];
+      $scope.tri = function(fil){
+        $scope.filterSelected = fil;
+      }
+
+      $scope.itemSelected = false;
+       $scope.select = function(item){
+        $scope.itemSelected = item;
+        for(var i=0;i< $scope.list.length;i++){
+          $scope.list[i].active = '';
+          if($scope.list[i] == item){
+            $scope.list[i].active = 'active';
+          }
+        }
+      }
+
     },
-    templateUrl: '../templates/ngSampleItem.html'
+    templateUrl: '../templates/ngListItem.html'
+  };
+})
+.directive('ngItem', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      item:"=",
+      type:"="
+
+    },
+    controller:function($scope){
+      if($scope.type.type == 'sample'){
+        $scope.itemFormHeaderTitle ="Add a sample to your collection";
+        $scope.itemFormHeaderContent = "You'll be able to create samples by filling the form or by importing .CSV file";
+      } else if($scope.type.type == 'collection'){
+        $scope.itemFormHeaderTitle ="Create a collection";
+        $scope.itemFormHeaderContent = "You can import a CSV file or you can create it from scratch";
+      }
+    
+      console.log($scope.item);
+    },
+    templateUrl: '../templates/ngItem.html'
+  };
+})
+  .directive('ngPin', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      itemSelected: "=",
+      type:"="
+    },
+    templateUrl: '../templates/ngPin.html'
   };
 })
 

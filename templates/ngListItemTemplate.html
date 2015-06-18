@@ -1,0 +1,46 @@
+<div ng-controller="SampleCtrl">
+	<div class="col-lg-3 col-md-3 col-sm-3 ng-resizable ui-widget-content">
+
+	             <ul class="nav nav-pills nav-stacked accountCtrlListItem">
+	             	<li class="dropdown">
+		              <a class="dropdown-toggle text-center" data-toggle="dropdown" href="#" id="themes"><span class="glyphicon glyphicon-filter pull-left pmr"></span> Filter by <span ng-bind="filterSelected"></span><span class="caret pull-right"></span></a>
+		              <ul class="dropdown-menu" aria-labelledby="themes">
+		                <li ng-repeat="filter in filters" ng-click="tri(filter)" >{{filter}}</li>
+		              </ul>
+		            </li> 
+	             	<li style="margin-bottom:5px">
+	             		<button ng-click="select(false)"class="btn btn-default btn-block ajoutItem">Add a sample <span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             	</li>
+	             	<li ng-repeat="sample in samples | orderBy:filterSelected" class="listItem {{sample.active}}" ng-click="select(sample)">
+		             	<div class="pull-left">
+		             		<img src="{{sample.image}}" alt="" class="block pmr listItemImg">
+		             	</div>
+		             	<div class="pull-left listItemContent" >
+		             		<div class="row">
+		             			<a href="" class="listItemContentName" class="block pml"> <span>{{sample.name}}</span></a>
+		             		</div>
+		             		<div class="row">
+		             			<small class="listItemContentInfo">
+		             				<span class="ion-social-dropbox-outline pmr"></span>
+		             				<a href="" class="block pml">{{sample.collection}}</a>
+		             			</small>
+		             		</div>
+		             	</div>
+	          			<hr style="clear:both;visibility:hidden;" />
+	             	</li>
+	             	
+	             </ul>
+	</div>
+	<div class="col-lg-9 col-md-9 col-sm-9 ng-resizable ui-widget-content">
+			<div ng-show="sampleSelected" class="itemSelectedHeader">
+				<ng-sample-item sample-selected="sampleSelected"></ng-sample-item>
+			</div>	
+			<div ng-hide="sampleSelected"  class="itemSelectedHeader col-lg-12 col-md-12 col-sm-12">
+					<h1>Add a sample to your collection</h1>
+				  	<p>You'll be able to create samples by filling the form or by importing .CSV file</p>
+				  	<p><button class="btn btn-info btn-sm" href=""><span class="glyphicon glyphicon-floppy-open pmr"></span> Import CSV</button></p>
+			</div>
+
+	</div>
+
+</div>
