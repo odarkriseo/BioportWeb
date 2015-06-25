@@ -173,7 +173,7 @@ angular
 
         }
       ]
-      $scope.globalInfo = { 
+    $scope.globalInfo = { 
         type:'collection',
         filter:['name','creationDate','sampleNumber']
       }
@@ -234,7 +234,73 @@ angular
     
   }])
   .controller('MessageCtrl', ['$scope', function($scope) {
-  
+      $scope.talk=
+      [
+        {
+          type:'collectionMsg',
+          idBind:'041104',
+          object:'',
+          messages:[
+            {
+              sender:'00145',
+              creationDate:'01-05-2014 08:40',
+              content:'Bonjour, je suis heureux de vous demander quelque chose parce que ça faisait longtemps que j\'attendais ça',
+              attachment:[],
+              reply:[
+                  {
+                    sender:'00214',
+                    creationDate:'01-06-2014 09:45',
+                    content:'Oui  et moi je suis très content de vous répondre !!! Wouhouuu voici une pièce jointe pour l\'occas',
+                    attachments:['../lib/img/logo.png'],
+                    reply:[]
+                  }
+              ]
+            },
+            {
+              sender:'00114',
+              creationDate:'09-10-2014 09:40',
+              content:'Moi j\'ai une autre question !!! .... ? Voilà ! ',
+              attachments:[],
+              reply:[
+                  {
+                    sender:'00214',
+                    creationDate:'01-06-2014 09:46',
+                    content:'wohaah ça c\'est de la question ! tiens une PJ',
+                    attachments:['../lib/img/logo.png'],
+                    reply:[]
+                  }
+              ]
+            }
+          ]
+
+        },
+        {
+          type:'privateMsg',
+          idBind:'00214',
+          object:'where do you work ?',
+          messages:[
+            {
+              sender:'00145',
+              creationDate:'01-01-2014 09:45',
+              content:'Bonjour, je suis heureux de vous demander quelque chose parce que ça faisait longtemps que j\'attendais ça',
+              attachment:[],
+              reply:[]
+            },
+            {
+              sender:'00214',
+              creationDate:'01-01-2014 09:48',
+              content:'Oui  et moi je suis très content de vous répondre !!! Wouhouuu',
+              attachments:['../lib/img/logo.png'],
+              reply:[]
+            }
+          ]
+
+        }
+      ];
+      $scope.globalInfo = { 
+        type:'message',
+        filter:['type','date','object','send']
+      }
   }])
   .controller('SettingCtrl', ['$scope', function($scope) {
     
