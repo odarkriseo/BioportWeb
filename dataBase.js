@@ -5,6 +5,21 @@ console.log("Visit me @ localhost:1337");
 var express = require('express');
 var app = express();
 
+app.use(function(req, res, next) {  
+  res.header('Access-Control-Allow-Origin', 'http://localhost:8020');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header(
+    'Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, X-Api-Key'
+  );
+  res.header('Access-Control-Allow-Credentials', 'true');
+  if ('OPTIONS' === req.method) {
+    res.sendStatus(200);
+  }
+  else {
+    next();
+  }
+});
+
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/bioportDB');
 var db = mongoose.connection;
