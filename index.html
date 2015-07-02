@@ -46,9 +46,9 @@
               <form class="form-inline">
               <div class="form-group">
                 <div class="input-group">
-                  <input type="text" class="form-control pre-input" id="exampleInputAmount" placeholder="Search something">
+                  <input ng-model="query" type="text" class="form-control pre-input" id="exampleInputAmount" placeholder="Search something">
                 
-                  <button type="submit" class="input-group-addon post-input"><span class="glyphicon glyphicon-search" ></span></button>
+                  <button ng-click="search(query)" type="submit" class="input-group-addon post-input"><span class="glyphicon glyphicon-search" ></span></button>
                 </div>
               </div>
             </form>

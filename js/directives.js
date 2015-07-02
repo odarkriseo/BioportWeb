@@ -29,6 +29,7 @@ angular.module('BioportDirectives', [])
       link: function(scope, element, attributes) {
         scope.closeModal = function(){
           element.modal('hide');
+          
         }
       }
     };

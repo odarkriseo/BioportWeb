@@ -308,7 +308,7 @@ angular
   .controller('LocationCtrl', ['$scope', function($scope) {
     
   }])
-  .controller('LoginCtrl',['$scope','$rootScope','$http','$location','$timeout','userService',function($scope,$rootScope,$http,$location,$timeout,userService){
+  .controller('LoginCtrl',['$scope','$rootScope','$http','$window','$timeout','userService',function($scope,$rootScope,$http,$window,$timeout,userService){
     
     $scope.rememberMeLog = false;
     $scope.connect = function(){
@@ -321,7 +321,7 @@ angular
                 $rootScope.user = userService;
                 $rootScope.user.signIn(data);
                 $scope.closeModal();
-               
+                $window.location.reload();
                 
                 
               }
