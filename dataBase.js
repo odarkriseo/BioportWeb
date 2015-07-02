@@ -1,9 +1,10 @@
-
+﻿
 console.log("Visit me @ localhost:1337");
 
 // express.js
 var express = require('express');
 var app = express();
+
 
 app.use(function(req, res, next) {  
   res.header('Access-Control-Allow-Origin', 'http://localhost:8020');
