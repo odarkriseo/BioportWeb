@@ -7,12 +7,8 @@ var app = express();
 
 
 app.use(function(req, res, next) {  
-<<<<<<< HEAD
   res.header("Access-Control-Allow-Origin", req.headers.origin);
-=======
   res.header('Access-Control-Allow-Origin', req.headers.origin);
- console.log(req.headers.origin);
->>>>>>> adf25ef269863578defca78febb5917d32cae0a3
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header(
     'Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With, X-Api-Key'
