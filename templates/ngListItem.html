@@ -1,4 +1,4 @@
-	<div class="col-lg-3 col-md-3 col-sm-3 ng-resizable ui-widget-content">
+	<div class="col-lg-4 col-md-3 col-sm-3 ng-resizable ui-widget-content">
 
 	             <ul class="nav nav-pills nav-stacked accountCtrlListItem">
 	             	<li class="dropdown">
@@ -8,7 +8,7 @@
 		              </ul>
 		            </li> 
 	             	<li style="margin-bottom:5px">
-	             		<button ng-click="select(false)"class="btn btn-default btn-block ajoutItem">Add a {{type.type}}<span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             		<button ng-click="select(false)"class="btn btn-default btn-block ajoutItem"><span class="pull-left">Add a {{type.type}}</span><span class="glyphicon glyphicon-plus iconAjout"></span></button>
 	             	</li>
 	             	<li ng-repeat="item in list | orderBy:filterSelected" class="listItem {{item.active}}" ng-click="select(item)">
 		             	<div class="pull-left">

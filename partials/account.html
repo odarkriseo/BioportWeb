@@ -1,6 +1,6 @@
 <div class="accountCtrl" ng-controller="AccountCtrl">
 	<div class="row accountCtrlRow">
-		<div class="col-lg-2 col-md-3 ng-resizable ui-widget-content">
+		<div class="col-lg-2 col-md-3 fixed primaryBG hidden-sm hidden-xs ng-resizable ui-widget-content accountMenu" >
 			<ul class="nav nav-pills nav-stacked ">
 			  	<li ng-repeat="menu in menus" class="{{menu.active}}" >
 			  		<a href="#/account/{{menu.url}}">
@@ -10,7 +10,7 @@
 			</ul>
 		</div>
 		
-		<div ng-repeat="menu in menus" class="col-lg-10 col-md-9" ng-show="menu.active" >
+		<div ng-repeat="menu in menus" class="col-lg-10 col-md-9 col-md-offset-3 col-lg-offset-2" ng-show="menu.active" >
 			<h1>{{menu.title}} <span class="glyphicon glyphicon-info-sign pml clickable" style="font-size:0.4em" ng-click="infos()"></span></h1>
 			<div class="alert alert-dismissible panel-default" ng-show="info">
              

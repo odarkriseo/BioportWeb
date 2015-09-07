@@ -4,7 +4,7 @@ body{
 .navbar.navbar-default.navbar-fixed-top{
 	background-color:white;
 	border-bottom: 2px solid #e2e2e2;
-box-shadow: 0 0 4px #e2e2e2;
+box-shadow: 0 0 4px rgba(0,0,0,.07);
 }
 .navbar-default .navbar-nav > li > a{
 	color:#409b88;
@@ -94,7 +94,37 @@ background-color: #eeeeee;
 background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+.fixed{
+	position:fixed;
+}
+.accountMenu{
+	padding:30px 0 0 0 !important;
+	height:100%;
+}
+.accountMenu ul li{
+	transition:.3s all;
+	padding-left:15px;
+}
+.accountMenu ul li a{
+	color:white;
+}
 
+.accountMenu ul li.active{
+	padding-left:40px;
+	transition:.3s all;
+}
+.accountMenu ul li:hover{
+	padding-left:40px;
+	transition:.3s all;
+	background-color:#308b78;
+}
+.accountMenu ul li.active, .accountMenu ul li.active:hover{
+	background-color:#207b68;
+}
+
+.accountMenu ul li:hover a,.accountMenu ul li a,.accountMenu ul li a.ng-binding,.accountMenu ul li a:hover,.accountMenu ul li a:focus{
+	background: transparent !important;
+}
 .ico-bioport{
 	padding-right:10px;
 }
@@ -110,7 +140,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 }
 
 .contentOffer{
-	background-color: #f5f5f5;
+	background-color: white;
     border: 1px solid #e2e2e2;
     border-radius: 0 0 5px 5px;
     margin-bottom: 20px;
@@ -183,13 +213,13 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	background-color:#e2e2e2;
 	color:#409b88;
 }
-.accountCtrl .nav.nav-pills.nav-stacked {
+/* .accountCtrl .nav.nav-pills.nav-stacked {
 	border-right: 1px solid #e2e2e2;
 
 }
 .nav.nav-pills.nav-stacked > li{
 	border-bottom:1px solid #e2e2e2;
-}
+} */
 
 .nav-pills > li > a{
 	border-radius:0;
@@ -214,7 +244,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	margin:0;
 }
 .accountCtrlListItem > li img{
-	margin-top:6px;
+	margin:10px;
 }
 .listItemImg{
 	max-width:60px;
