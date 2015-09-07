@@ -12,6 +12,7 @@ angular
         id:0,
         carouselH1 : 'The Marketplace for your Biological Samples',
         carouselP : 'Share, Sell and Buy some biological collections',
+        carouselA : ['Search','/search/q=all'],
         src : "../lib/img/photo1.jpg",
         srcAlt : "C'est une première image",
         active:"active"
@@ -20,6 +21,7 @@ angular
         id:1,
         carouselH1 : 'Bioport, your management software',
         carouselP : 'Use it to bla bla',
+        carouselA : ['Sign in','/subscribe'],
         src:"../lib/img/photo2.jpg",
         srcAlt : "C'est une deuxieme image",
         active:""    
@@ -28,6 +30,7 @@ angular
         id:2,
         carouselH1 : 'Every collection needs to be manage',
         carouselP : '546 300 Samples stored, add yours',
+        carouselA : ['Subscribe','/subscribe'],
         src:"../lib/img/photo3.jpg",
         srcAlt : "C'est une troisième image",
         active:""   

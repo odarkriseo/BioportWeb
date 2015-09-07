@@ -15,7 +15,7 @@
             <div ng-repeat="slide in slider" class="item {{slide.active}}">
               <img ng-cloak src="{{slide.src}}" alt="{{slide.srcAlt}}">
               <div class="carousel-caption">
-                <h1>{{slide.carouselH1}}</h1>
+                <h1>{{slide.carouselH1}} <a class="btn btn-success btn-lg pull-right" href="index.html#{{slide.carouselA[1]}}">{{slide.carouselA[0]}}</a></h1>
                 <p class="lead">{{slide.carouselP}}</p>
               </div>
             </div>
