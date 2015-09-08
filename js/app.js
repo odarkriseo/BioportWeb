@@ -8,7 +8,8 @@ var app = angular.module('Bioport', [
   'BioportControllers',
   'BioportFilters',
   'BioportServices',
-  'BioportDirectives'
+  'BioportDirectives',
+  'flow'
 ]);
 
 app.config(['$routeProvider',

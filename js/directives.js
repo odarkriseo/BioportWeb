@@ -105,6 +105,24 @@ angular.module('BioportDirectives', [])
     templateUrl: '../templates/ngPin.html'
   };
 })
+  .directive('ngVisibilityDropDownBtn', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      item: "="
+    },
+    templateUrl: '../templates/ngVisibilityDropDownBtn.html'
+  };
+})
+  .directive('ngForm', function() {
+  return {
+    restrict: 'E',
+    scope:{
+      type: "="
+    },
+    templateUrl: '../templates/ngForm-'+ scope.type +'.html'
+  };
+})
 
 /*  .directive('myTabs', function() {
   return {

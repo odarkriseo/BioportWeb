@@ -1,6 +1,287 @@
 body{
 	padding-top:62px;
 }
+.inline-block{
+	display:inline-block;
+}
+.w10 {
+  width: 10%;
+}
+.w20 {
+  width: 20%;
+}
+.w25 {
+  width: 25%;
+}
+.w30 {
+  width: 30%;
+}
+.w33 {
+  width: 33.3333%;
+}
+.w40 {
+  width: 40%;
+}
+.w50 {
+  width: 50%;
+}
+.w60 {
+  width: 60%;
+}
+.w66 {
+  width: 66.6666%;
+}
+.w70 {
+  width: 70%;
+}
+.w75 {
+  width: 75%;
+}
+.w80 {
+  width: 80%;
+}
+.w90 {
+  width: 90%;
+}
+.w100 {
+  width: 100%;
+}
+.w50p {
+  width: 50px;
+}
+.w100p {
+  width: 100px;
+}
+.w150p {
+  width: 150px;
+}
+.w200p {
+  width: 200px;
+}
+.w300p {
+  width: 300px;
+}
+.w400p {
+  width: 400px;
+}
+.w500p {
+  width: 500px;
+}
+.w600p {
+  width: 600px;
+}
+.w700p {
+  width: 700px;
+}
+.w800p {
+  width: 800px;
+}
+.w960p {
+  width: 960px;
+}
+.mw960p {
+  max-width: 960px;
+}
+.w1140p {
+  width: 1140px;
+}
+.mw1140p {
+  max-width: 1140px;
+}
+.wauto {
+  width: auto;
+}
+/* spacing helpers
+p,m = padding,margin
+a,t,r,b,l = all,top,right,bottom,left
+s,m,l,n = small, medium, large, none
+*/
+.man {
+  margin: 0;
+}
+.pan {
+  padding: 0;
+}
+.mas {
+  margin: 10px;
+}
+.mam {
+  margin: 20px;
+}
+.mal {
+  margin: 40px;
+}
+.pas {
+  padding: 10px;
+}
+.pam {
+  padding: 20px;
+}
+.pal {
+  padding: 40px;
+}
+.mtn {
+  margin-top: 0;
+}
+.mts {
+  margin-top: 10px;
+}
+.mtm {
+  margin-top: 20px;
+}
+.mtl {
+  margin-top: 40px;
+}
+.mrn {
+  margin-right: 0;
+}
+.mrs {
+  margin-right: 10px;
+}
+.mrm {
+  margin-right: 20px;
+}
+.mrl {
+  margin-right: 40px;
+}
+.mbn {
+  margin-bottom: 0;
+}
+.mbs {
+  margin-bottom: 10px;
+}
+.mbm {
+  margin-bottom: 20px;
+}
+.mbl {
+  margin-bottom: 40px;
+}
+.mln {
+  margin-left: 0;
+}
+.mls {
+  margin-left: 10px;
+}
+.mlm {
+  margin-left: 20px;
+}
+.mll {
+  margin-left: 40px;
+}
+.ptn {
+  padding-top: 0;
+}
+.pts {
+  padding-top: 10px;
+}
+.ptm {
+  padding-top: 20px;
+}
+.ptl {
+  padding-top: 40px;
+}
+.prn {
+  padding-right: 0;
+}
+.prs {
+  padding-right: 10px;
+}
+.prm {
+  padding-right: 20px;
+}
+.prl {
+  padding-right: 40px;
+}
+.pbn {
+  padding-bottom: 0;
+}
+.pbs {
+  padding-bottom: 10px;
+}
+.pbm {
+  padding-bottom: 20px;
+}
+.pbl {
+  padding-bottom: 40px;
+}
+.pln {
+  padding-left: 0;
+}
+.pls {
+  padding-left: 10px;
+}
+.plm {
+  padding-left: 20px;
+}
+.pll {
+  padding-left: 40px;
+}
+
+/*/////////////////////////////////////////////////////////CSS POUR LE DRAG AND DROP DE FICHIER/////////////////////////////*/
+
+
+.features {
+    float: right;
+    padding-left: 20px;
+    width: 300px;
+}
+.features .heading {
+    font-size: 14px;
+    font-weight: bold;
+}
+.drop {
+    border: 2px dashed #ffffff;
+    border-radius: 5px;
+    line-height: 34px;
+    padding: 15px;
+}
+.drop.drag-over {
+    background: #5cb85c none repeat scroll 0 0;
+    color: #fff;
+}
+.transfer-box {
+    margin-bottom: 5px;
+}
+.transfer-box .progress {
+    margin-bottom: 0;
+}
+.thumbnail {
+    line-height: 20px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    word-break: normal;
+}
+.thumbnail img {
+    max-height: 150px;
+    max-width: 200px;
+}
+.gallery-box {
+    border: 1px solid #ddd;
+    float: left;
+    margin: 7px;
+    min-height: 200px;
+    overflow: hidden;
+    padding: 5px;
+    width: 200px;
+}
+.gallery-box .progress {
+    margin-bottom: 0;
+}
+.gallery-box .thumbnail {
+    height: 188px;
+    width: 188px;
+}
+.gallery-box .title {
+    display: block;
+    height: 22px;
+    overflow: hidden;
+}
+.dragDropZone{
+	border:4px white dashed;
+	padding:8px;
+}
+
+/*///////////////////////////////////////////////////FIN DE CSS POUR LE DRAG N DROP DE FICHIER/////////////////////////////*/
 .navbar.navbar-default.navbar-fixed-top{
 	background-color:white;
 	border-bottom: 2px solid #e2e2e2;
@@ -195,7 +476,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	font-size: 1.1em;
 	line-height: 25px;
 }
-.accountPersonalisation .accountCtrlListItem button.ajoutItem .iconAjout{
+.iconAjout{
 	border: 1px solid white;
 	border-radius: 50%;
 	padding: 6px;

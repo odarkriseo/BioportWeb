@@ -53,7 +53,6 @@ angular
   .controller('AccountCtrl', ['$scope','$routeParams', function($scope,$routeParams) {
     
     $scope.info =false;
-    //$scope.controller = [HomeCtrl,OrderCtrl,MessageCtrl,CollectionCtrl,SampleCtrl,GroupCtrl,LocationCtrl,SettingCtrl];
     $scope.menus = 
     [
       {
@@ -180,6 +179,10 @@ angular
         type:'collection',
         filter:['name','creationDate','sampleNumber']
       }
+      $scope.toto = false;
+    $scope.removeAttribute = function(){
+        $scope.toto = !$scope.toto;
+      }
   }])
   .controller('OrderCtrl', ['$scope', function($scope) {
     
@@ -194,36 +197,60 @@ angular
         {
           name:'collocius Malificius',
           collection:'Champignon',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
         },
         {
           name:'gelicius Morqus',
           collection:'Champignon',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
 
         },
         {
           name:'trompette de la mort',
           collection:'Champignon',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
 
         },
         {
           name:'champignon de paris',
           collection:'Champignon',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
 
         },
         {
           name:'ebola',
           collection:'Virus',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
 
         },
         {
           name:'souche H1N1',
           collection:'Virus',
-          image:'../lib/img/biotech.jpg'
+          image:'../lib/img/biotech.jpg',
+          visibilities: {
+            permission: null,
+            visibility: "PUBLIC"
+          }
 
         }
       ];

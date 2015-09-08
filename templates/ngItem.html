@@ -3,11 +3,16 @@
 			<div ng-show="item" class="itemSelectedHeader">
 				<ng-pin item-selected="item" type="type"></ng-pin>
 			</div>	
-			<div ng-hide="item"  class="itemSelectedHeader col-lg-12 col-md-12 col-sm-12">
+			<div ng-hide="item" >
+				<div class="itemSelectedHeader col-lg-12 col-md-12 col-sm-12">
 					<h1>{{itemFormHeaderTitle}}</h1>
 				  	<p>{{itemFormHeaderContent}}</p>
 				  	<p><button class="btn btn-info btn-sm" href=""><span class="glyphicon glyphicon-floppy-open pmr"></span> Import CSV</button></p>
+				</div>
+				<ng-include src="'templates/ngForm-' +type.type + '.html'" ></ng-include>
+
 			</div>
+			
 
 	</div>
 

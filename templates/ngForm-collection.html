@@ -1,0 +1,115 @@
+<form>
+
+      <div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="well bs-component">
+              <form class="form-horizontal">
+                <fieldset>
+                  <legend>Create a collection with a Form</legend>
+                  <div class="form-group">
+                    <div class="col-lg-12">
+                      <input type="text" class="form-control mbs" id="name" placeholder="Name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-lg-12">
+                      <textarea class="form-control mbs" rows="3" id="description" placeholder="Description"></textarea>
+                    </div>
+                  </div>
+                  <div class="form-group" flow-init>
+                    <label for="file" class="col-lg-2 control-label">Files</label>
+                    <div class="col-lg-10 mbm" >
+                      <div flow-init="{target: '/upload'}"
+                           flow-files-submitted="$flow.upload()"
+                           flow-file-success="$file.msg = $message">
+
+                        <div class="dragDropZone " flow-drop flow-drag-enter="style={border:'4px dashed #409fce'}" flow-drag-leave="style={}" ng-style="style">
+                           <span class="btn btn-info" flow-btn>Upload File</span> or Drag And Drop your file here
+                        </div>
+                        <div ng-repeat="file in $flow.files">
+                          <div class="transfer-box ng-binding">
+                              {{$index+1}} - {{file.name}} ({{file.size / 1000 | number : 0}}ko)
+                              <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                <div class="progress-bar" ng-style="{width: (file.progress() * 100) + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" style="width: 100%;">
+                                </div>
+                              </div>
+                              <div class="btn-group">
+                                <a class="btn btn-xs btn-warning ng-hide" ng-show="!file.paused && file.isUploading()" ng-click="file.pause()"> Pause </a>
+                                <a class="btn btn-xs btn-warning ng-hide" ng-show="file.paused" ng-click="file.resume()"> Resume </a>
+                                <a class="btn btn-xs btn-danger" ng-click="file.cancel()"> Cancel </a>
+                                <a class="btn btn-xs btn-info ng-hide" ng-show="file.error" ng-click="file.retry()"> Retry </a>
+                              </div>
+                            
+                            </div>
+                        </div>
+                            
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="location" class="col-lg-2 control-label">Location</label>
+                    <div class="col-lg-10">
+                      <select class="form-control  mbs">
+                        <option>none</option>
+                        <option>Location 1</option>
+                        <option>Location 2</option>
+                        <option>Location 3</option>
+                        <option>Location 4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="col-lg-2 control-label">Availability</label>
+                    <div class="col-lg-10">
+                      <div class="form-inline mbs">
+                        <div class="btn-group" data-toggle="buttons">
+                          <label class="btn btn-info active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> For sale
+                          </label>
+                          <label class="btn btn-danger">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Not for sale
+                          </label>
+                        </div>
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="price" id="price" autocomplete="off" />
+                          <div class="input-group-addon">$</div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="description" class="col-lg-2 control-label">Model</label>
+                    <div class="col-lg-10 mbs" ng-hide="toto">
+                         <input type="text" placeholder="Attribute key" name="attributeKey1" class="form-control inline-block w40"/>
+                         <input type="text" placeholder="Default value (optionnal)" name="attributeValue1" class="form-control inline-block w40"/>
+                         <input type="button" class="form-control btn btn-danger inline-block w10" value="X" ng-click="removeAttribute()"/>                 
+                    </div>
+                    <hr class="clear:both">
+                    <div class="col-lg-10 col-lg-offset-2 mbs">
+                    <button class="btn  btn-info btn-block " ng-click="addAttribute()">
+                      <span class="pull-left" >Add an attribute</span>
+                      <span class="glyphicon glyphicon-plus iconAjout"></span>
+                    </button>
+                    </div>
+                   
+                  </div>
+                  
+                 
+                  <div class="form-group ">
+                    <div class="col-lg-6 col-lg-offset-3 mtl">
+                      <button type="submit" class="btn btn-primary col-lg-7">Submit</button>
+                      <button type="reset" class="btn btn-default col-lg-4 col-lg-offset-1">Cancel</button>
+                     
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+	</div>
+</form>
