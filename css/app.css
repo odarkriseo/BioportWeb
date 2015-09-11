@@ -684,3 +684,6 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	width:200px;
 }
 /*//////////////////////////////////////////////FIN MULTI LEVEL DROP DOWN///////////////////////////////*/
+.well.bs-component{
+	    border: 1px solid #e2e2e2;
+}
