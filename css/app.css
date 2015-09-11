@@ -4,6 +4,13 @@ body{
 .inline-block{
 	display:inline-block;
 }
+.txtcenter{
+	text-align: center;
+	vertical-align: middle;
+}
+.control-label{
+	text-align:left !important ;
+}
 .w10 {
   width: 10%;
 }
@@ -554,7 +561,7 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 }
 .itemSelectedHeaderVisibility{
 	position:absolute;
-	z-index:1000;
+	z-index:10;
 	top:10px;
 	right:10px;
 }
@@ -595,3 +602,85 @@ background-image: url("http://www.transparenttextures.com/patterns/cubes.png");
 	padding-right: 9px;
 	font-size:1.3em;
 }
+.itemSelectedHeaderVisibility .ion-erlenmeyer-flask,
+.itemSelectedHeaderVisibility .ion-person-stalker,
+.itemSelectedHeaderVisibility .ion-gear-b,
+.itemSelectedHeaderVisibility .ion-ionic,
+.itemSelectedHeaderVisibility .ion-chatboxes,
+.itemSelectedHeaderVisibility .ion-earth,
+.itemSelectedHeaderVisibility .ion-locked,
+.itemSelectedHeaderVisibility .ion-merge{
+	padding-right: 9px;
+	font-size:1em;
+}
+.titleDropDownVisibility{
+	cursor:default;
+}
+/*//////////////////////////////////////////////MULTI LEVEL DROP DOWN///////////////////////////////*/
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu.pull-left>a:after {
+	display: block;
+    content: " ";
+    float: left;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 5px 5px 0px;
+    border-right-color: #ccc;
+    margin-top: 5px;
+    margin-left: -14px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+    width:100%;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -200px;
+    margin-left: -2px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+.dropdown-menu{
+	width:200px;
+}
+/*//////////////////////////////////////////////FIN MULTI LEVEL DROP DOWN///////////////////////////////*/

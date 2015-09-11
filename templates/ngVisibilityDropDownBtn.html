@@ -1,16 +1,22 @@
 <div class="btn-group itemSelectedHeaderVisibility">
-	  <button type="button" class="btn btn-default btn-defaultModif"><span class="ion-eye"></span></button>
-	  <button type="button" class="btn btn-default btn-defaultModif dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	  <button type="button" class="btn btn-default btn-defaultModif"><span class="{{iconVisibility}}"></span></button>
+	  <button type="button" class="btn btn-default btn-defaultModif dropdown-toggle" style="cursor: help"title="Choose the {{type}} visibility" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 	    <span class="caret"></span>
-	    <span class="sr-only">Toggle Dropdown</span>
 	  </button>
 	  <ul class="dropdown-menu pull-right">
-	  	<li><a href="#">Visibility of {{item.name}}</a></li>
-	  	<li role="separator" class="divider"></li>
-	    <li><a href="#"><span class="ion-earth pmr"></span>Public</a></li>
-	    <li><a href="#"><span class="ion-person-stalker"></span>Shared</a></li>
-	    <li><a href="#"><span class="ion-locked"></span>Private</a></li>
-	    <li role="separator" class="divider"></li>
-	    <li><a href="#"><span class="ion-merge"></span>Inherit</a></li>
+	    <li><a  ng-click="changeVisibility('PUBLIC');$event.stopPropagation();"><span class="ion-earth pmr"></span>Public</a></li>
+	   	<li class="dropdown-submenu pull-left">
+            <a tabindex="-1" ng-click="changeVisibility('SHARED');$event.stopPropagation();"><span class="ion-person-stalker"></span>Shared</a>
+            <ul class="dropdown-menu">
+              <li><input type="text" class="form-control" ng-blur="chercherUsers()" /></li>
+              <li role="separator" class="divider"></li>
+              <li ng-click="$event.stopPropagation();" ng-repeat="user in users"><a><input type="checkbox" /> {{user.name}}</a></li>
+            </ul>
+        </li>
+	    <li><a  ng-click="changeVisibility('PRIVATE');$event.stopPropagation();"><span class="ion-locked"></span>Private</a></li>
+	    
+	    <li ng-show="estHeritable" role="separator" class="divider"></li>
+	    <li ng-show="estHeritable" ><a  ng-click="changeVisibility('INHERIT');$event.stopPropagation();"><span class="ion-merge"></span>Inherit</a></li>
 	  </ul>
+	  <input type="hidden"  ng-value="visib" /> 
 </div>

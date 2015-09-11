@@ -8,7 +8,7 @@
 		              </ul>
 		            </li> 
 	             	<li style="margin-bottom:5px">
-	             		<button ng-click="select(false)"class="btn btn-default btn-block ajoutItem"><span class="pull-left">Add a {{type.type}}</span><span class="glyphicon glyphicon-plus iconAjout"></span></button>
+	             		<button ng-click="select(null)"class="btn btn-default btn-block ajoutItem"><span class="pull-left">Add a {{globalInfo.type}}</span><span class="glyphicon glyphicon-plus iconAjout"></span></button>
 	             	</li>
 	             	<li ng-repeat="item in list | orderBy:filterSelected" class="listItem {{item.active}}" ng-click="select(item)">
 		             	<div class="pull-left">
@@ -21,7 +21,8 @@
 		             		<div class="row">
 		             			<small class="listItemContentInfo">
 		             				<span class="ion-social-dropbox-outline pmr"></span>
-		             				<a href="" class="block pml">{{item.collection || item.sampleNumber+" Samples"}}</a>
+		             				<a ng-if="globalInfo.type == 'collection'" href="" class="block pml">{{item.sampleNumber+" Samples"}}</a>
+		             				<a ng-if="globalInfo.type == 'sample'" href="" class="block pml">{{item.collection}}</a>
 		             			</small>
 		             		</div>
 		             	</div>
@@ -30,4 +31,4 @@
 	             	
 	             </ul>
 	</div>
-	<ng-item item="itemSelected" type="type"></ng-item>
+	<ng-item></ng-item>

@@ -7,7 +7,6 @@ angular.module('BioportDirectives', [])
     return {
       restrict: 'C',
       link: function(scope, element, attributes) {
-        console.log(element);
         element.carousel({
             interval: 5000
         });
@@ -18,7 +17,6 @@ angular.module('BioportDirectives', [])
     return {
       restrict: 'C',
       link: function(scope, element, attributes) {
-        console.log(element);
         element.dropdown();
       }
     };
@@ -45,30 +43,49 @@ angular.module('BioportDirectives', [])
   }])
   .directive('ngListItem', function() {
   return {
-    restrict: 'E',
-    scope: {
-      list:"=",
-      type:"="
-    },
-    controller: function($scope) {
-
-      $scope.filters = $scope.type.filter;
-      $scope.filterSelected = $scope.type.filter[0];
-      $scope.tri = function(fil){
-        $scope.filterSelected = fil;
+    restrict: 'E', 
+    link: function(scope, element, attrs) {
+      scope.list = scope.collections || scope.samples;
+      scope.filters = scope.globalInfo.filter;
+      scope.filterSelected = scope.globalInfo.filter[0];
+      scope.tri = function(fil){
+        scope.filterSelected = fil;
       }
 
-      $scope.itemSelected = false;
-       $scope.select = function(item){
-        $scope.itemSelected = item;
-        for(var i=0;i< $scope.list.length;i++){
-          $scope.list[i].active = '';
-          if($scope.list[i] == item){
-            $scope.list[i].active = 'active';
+      scope.itemSelected = null;
+      initItemNull();
+      scope.select = function(item){
+        scope.itemSelected = item;
+            if(item !== null){
+               scope.itemFormHeaderTitle = scope.itemSelected.name;
+              if(scope.globalInfo.type == 'sample'){      
+                scope.itemFormHeaderContent = scope.itemSelected.collection;
+              } else if(scope.globalInfo.type == 'collection'){
+                scope.itemFormHeaderContent = scope.itemSelected.sampleNumber + ' Samples';
+              }
+            }
+            if(item == null){
+              initItemNull();
+            }
+        for(var i=0;i< scope.list.length;i++){
+          scope.list[i].active = '';
+          if(scope.list[i] == item){
+             scope.list[i].active = 'active';
           }
         }
       }
 
+      function initItemNull(){
+        if(scope.globalInfo.type == 'sample'){
+          scope.itemFormHeaderTitle ="Add a sample to your collection";
+          scope.itemFormHeaderContent = "You'll be able to create samples by filling the form or by importing .CSV file";
+          scope.imageDefault = '../lib/img/biotech.jpg';
+        } else if(scope.globalInfo.type == 'collection'){
+          scope.itemFormHeaderTitle ="Create a collection";
+          scope.itemFormHeaderContent = "0 Sample - You can import a CSV file to generate model and samples";
+          scope.imageDefault = '../lib/img/biotech.jpg';
+        }
+      }
     },
     templateUrl: '../templates/ngListItem.html'
   };
@@ -76,53 +93,100 @@ angular.module('BioportDirectives', [])
 .directive('ngItem', function() {
   return {
     restrict: 'E',
-    scope: {
-      item:"=",
-      type:"="
-
-    },
-    controller:function($scope){
-      if($scope.type.type == 'sample'){
-        $scope.itemFormHeaderTitle ="Add a sample to your collection";
-        $scope.itemFormHeaderContent = "You'll be able to create samples by filling the form or by importing .CSV file";
-      } else if($scope.type.type == 'collection'){
-        $scope.itemFormHeaderTitle ="Create a collection";
-        $scope.itemFormHeaderContent = "You can import a CSV file or you can create it from scratch";
-      }
-    
-      console.log($scope.item);
-    },
     templateUrl: '../templates/ngItem.html'
   };
 })
-  .directive('ngPin', function() {
+.directive('ngClear', function() {
   return {
     restrict: 'E',
-    scope:{
-      itemSelected: "=",
-      type:"="
-    },
-    templateUrl: '../templates/ngPin.html'
+    template: '<hr style="clear:both;visibility:hidden;margin:0 !important;" />'
   };
 })
   .directive('ngVisibilityDropDownBtn', function() {
   return {
     restrict: 'E',
     scope:{
-      item: "="
+      entity : '=',
+      type:'@'
+    },
+    link: function(scope, element, attrs) {
+      scope.visibilities = {DEFAULT:"ion-eye",PUBLIC:"ion-earth",SHARED:"ion-person-stalker",PRIVATE:"ion-locked",INHERIT:"ion-merge"};
+      scope.iconVisibility = scope.visibilities.DEFAULT;
+      scope.visib = 'DEFAULT';
+      scope.estHeritable = false;
+      scope.users = [
+      {
+        id:"0001",name:"Hôpital Chantepie",type:'user'
+      },{
+        id:"0002",name:"Hôpital Grand frais",type:'user'
+      },{
+        id:"0003",name:"Marcel Jean",type:'user'
+      },{
+        id:"0004",name:"Groupe Clinique Brest",type:'group'
+      },{
+        id:"0005",name:"Groupe Valencienne",type:'group'
+      }];
+      scope.changeVisibility = function(visibility){
+        scope.iconVisibility = scope.visibilities[visibility];
+        scope.visib = visibility;
+        element.find('.itemSelectedHeaderVisibility').removeClass('open');
+        if(scope.type == 'attributeCollection'){
+            scope.$parent.$parent.$parent.attribs[scope.entity].visibilities.visibility = visibility;
+            if(visibility == "SHARED"){
+              scope.$parent.$parent.$parent.attribs[scope.entity].visibilities.users = ["user1","user2","user3","groupUser1","groupUser2"];
+            }else{
+              scope.$parent.$parent.$parent.attribs[scope.entity].visibilities.users = null;
+            }
+            
+        }
+        if(scope.type == 'collection'){
+
+        }
+        if(scope.type == 'sample'){
+          scope.estHeritable = true;
+        }
+        if(scope.type == 'attributeSample'){
+          scope.estHeritable = true;
+        }
+      }
     },
     templateUrl: '../templates/ngVisibilityDropDownBtn.html'
   };
 })
-  .directive('ngForm', function() {
+/*  .directive('ngForm', function() {
   return {
     restrict: 'E',
-    scope:{
-      type: "="
-    },
     templateUrl: '../templates/ngForm-'+ scope.type +'.html'
   };
-})
+})*/
+ /*   .directive('ngAttributModel', function() {
+  return {
+    restrict: 'E',
+    controller: function($scope) {
+      $scope.removeAttribut = function(attrib){
+        console.log('remove//////////////////////////////////////////////////////////////////////////////////////');
+        delete(scope.attribs.attrib);
+        
+      }
+      $scope.addAttribut = function(){
+        console.log('add/////////////////////////////////////////////////////////////////////////////////////////');
+      }
+    },
+    link: function(scope, element, attrs) {
+      scope.attribs = [{key:"",value:""}];
+      //alert('modellllll');
+      scope.removeAttribut = function(attrib){
+        console.log('remove//////////////////////////////////////////////////////////////////////////////////////');
+        delete(scope.attribs.attrib);
+        
+      }
+      scope.addAttribut = function(){
+        console.log('add/////////////////////////////////////////////////////////////////////////////////////////');
+      }
+      
+    }
+  };
+})*/
 
 /*  .directive('myTabs', function() {
   return {

@@ -174,15 +174,76 @@ angular
           creationDate:'01-01-2013'
 
         }
-      ]
+      ];
+    $scope.itemSelected = null;
+
+    
     $scope.globalInfo = { 
         type:'collection',
         filter:['name','creationDate','sampleNumber']
       }
-      $scope.toto = false;
-    $scope.removeAttribute = function(){
-        $scope.toto = !$scope.toto;
-      }
+   
+    $scope.nbAttrCreeAuTotal = 0;
+    $scope.attribs = {};
+    $scope.removeAttribute = function(key){
+      delete this.attribs[key]; 
+  
+    }
+
+    $scope.fillAttribute  = function(key,value){
+     this.attribs[key].keyAttribute = value;
+    }
+    
+    $scope.addAttribute = function(){
+      
+      this.attribs["attrib-"+this.nbAttrCreeAuTotal] = {
+        keyAttribute:"",
+        value:"",
+        visibilities:{
+          visibility:"DEFAULT",
+          users:null
+        },
+        mainAttribute:false
+      };
+      this.nbAttrCreeAuTotal++;
+    }
+
+    $scope.obj = {};
+
+    $scope.addCollection = function(){
+
+
+      $http({
+        method:'POST',
+        url:'collections/create',
+        data: {
+            name : $scope.nameCollection,
+            description : $scope.descriptionCollection,
+            model : $scope.attribs,
+            mainAttribute : String
+ /*            visibilities : [{
+              visibility : String,
+              users : String[]
+            }],
+            samples : [],
+            owners  :[],
+            creation_date : null,
+            suppression_date : Date*/
+        }
+        
+      })
+      .success(function(data){
+
+        $scope.msg = "La bière a été ajoutée";
+        $scope.name ="";
+        $scope.desc ="";
+        $scope.img ="";
+        $scope.alcohol="";
+      })
+      .error(function(e){
+        console.log(e);
+      });
+    }
   }])
   .controller('OrderCtrl', ['$scope', function($scope) {
     
@@ -254,6 +315,8 @@ angular
 
         }
       ];
+
+      $scope.itemSelected = null;
       $scope.globalInfo = { 
         type:'sample',
         filter:['name','collection']
@@ -345,7 +408,6 @@ angular
        
        $http.get('http://localhost:1337/login/m='+ $scope.emailLog +'&p='+$scope.passLog).success(function(data) {
         
-        console.log("loginCtrl : data from http://localhost:1337/login/m=:mail&p=:mdp : '"+data+"'");
           
               if($scope.emailLog == data.mail && $scope.passLog == data.password){
                 $rootScope.user = userService;
@@ -358,7 +420,7 @@ angular
               
         
         }).error(function(e){
-          console.log(e);
+
         });
     };
 

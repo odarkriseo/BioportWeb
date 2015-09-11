@@ -1,29 +1,22 @@
-<form>
-
-      <div>
+<form class="form-horizontal">
+  <fieldset>
 
         <div class="row">
           <div class="col-lg-12">
             <div class="well bs-component">
-              <form class="form-horizontal">
-                <fieldset>
-                  <legend>Create a collection with a Form</legend>
                   <div class="form-group">
                     <div class="col-lg-12">
-                      <input type="text" class="form-control mbs" id="name" placeholder="Name">
+                      <textarea class="form-control mbs" rows="3" id="description" ng-model="descriptionCollection" placeholder="Description"></textarea>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="col-lg-12">
-                      <textarea class="form-control mbs" rows="3" id="description" placeholder="Description"></textarea>
-                    </div>
-                  </div>
+            </div>
+            <div class="well bs-component">
                   <div class="form-group" flow-init>
                     <label for="file" class="col-lg-2 control-label">Files</label>
                     <div class="col-lg-10 mbm" >
                       <div flow-init="{target: '/upload'}"
                            flow-files-submitted="$flow.upload()"
-                           flow-file-success="$file.msg = $message">
+                           flow-file-success="$file.msg = $message" flow-name="obj.flowPJ">
 
                         <div class="dragDropZone " flow-drop flow-drag-enter="style={border:'4px dashed #409fce'}" flow-drag-leave="style={}" ng-style="style">
                            <span class="btn btn-info" flow-btn>Upload File</span> or Drag And Drop your file here
@@ -40,25 +33,28 @@
                                 <a class="btn btn-xs btn-warning ng-hide" ng-show="file.paused" ng-click="file.resume()"> Resume </a>
                                 <a class="btn btn-xs btn-danger" ng-click="file.cancel()"> Cancel </a>
                                 <a class="btn btn-xs btn-info ng-hide" ng-show="file.error" ng-click="file.retry()"> Retry </a>
-                              </div>
-                            
+                              </div>          
                             </div>
                         </div>
-                            
+                      </div>      
                     </div>
                   </div>
+            </div>
+            <div class="well bs-component">
                   <div class="form-group">
                     <label for="location" class="col-lg-2 control-label">Location</label>
                     <div class="col-lg-10">
-                      <select class="form-control  mbs">
-                        <option>none</option>
-                        <option>Location 1</option>
-                        <option>Location 2</option>
-                        <option>Location 3</option>
-                        <option>Location 4</option>
+                      <select ng-model="locationCollection" class="form-control  mbs">
+                        <option value="none">none</option>
+                        <option value="location1">Location 1</option>
+                        <option value="location2">Location 2</option>
+                        <option value="location3">Location 3</option>
+                        <option value="location4">Location 4</option>
                       </select>
                     </div>
                   </div>
+            </div>
+<!--             <div class="well bs-component">
                   <div class="form-group">
                     <label for="description" class="col-lg-2 control-label">Availability</label>
                     <div class="col-lg-10">
@@ -79,37 +75,88 @@
                       
                     </div>
                   </div>
+            </div> -->
+            <div class="well bs-component">
                   <div class="form-group">
-                    <label for="description" class="col-lg-2 control-label">Model</label>
-                    <div class="col-lg-10 mbs" ng-hide="toto">
-                         <input type="text" placeholder="Attribute key" name="attributeKey1" class="form-control inline-block w40"/>
-                         <input type="text" placeholder="Default value (optionnal)" name="attributeValue1" class="form-control inline-block w40"/>
-                         <input type="button" class="form-control btn btn-danger inline-block w10" value="X" ng-click="removeAttribute()"/>                 
+                    <div class="clearfix mbm">
+                        <label class="col-lg-2 control-label" >Model</label>
                     </div>
-                    <hr class="clear:both">
-                    <div class="col-lg-10 col-lg-offset-2 mbs">
-                    <button class="btn  btn-info btn-block " ng-click="addAttribute()">
-                      <span class="pull-left" >Add an attribute</span>
-                      <span class="glyphicon glyphicon-plus iconAjout"></span>
-                    </button>
-                    </div>
+                    
+                      <div class="col-lg-5 col-md-5">
+                        <div flow-init>
+                          <div class="col-lg-12" >
+                            <div flow-init="{target: '/upload'}"
+                                 flow-files-submitted="$flow.upload()"
+                                 flow-file-success="$file.msg = $message" flow-name="obj.flowCSV" afficheBtn="disableAddAttribute">
+
+                              <div class="dragDropZone " flow-drop flow-drag-enter="style={border:'4px dashed #409fce'}" flow-drag-leave="style={}" ng-style="style">
+                                 <span class="btn btn-info btn-block" flow-btn>Join CSV</span>
+                              </div>
+                              <div ng-repeat="file in $flow.files">
+                                <div class="transfer-box ng-binding">
+                                    {{$index+1}} - {{file.name}} ({{file.size / 1000 | number : 0}}ko)
+                                    <div class="progress progress-striped" ng-class="{active: file.isUploading()}">
+                                      <div class="progress-bar" ng-style="{width: (file.progress() * 100) + '%'}" aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" style="width: 100%;">
+                                      </div>
+                                    </div>
+                                    <div class="btn-group">
+                                      <a class="btn btn-xs btn-warning ng-hide" ng-show="!file.paused && file.isUploading()" ng-click="file.pause()"> Pause </a>
+                                      <a class="btn btn-xs btn-warning ng-hide" ng-show="file.paused" ng-click="file.resume()"> Resume </a>
+                                      <a class="btn btn-xs btn-danger" ng-click="file.cancel()"> Cancel </a>
+                                      <a class="btn btn-xs btn-info ng-hide" ng-show="file.error" ng-click="file.retry()"> Retry </a>
+                                    </div>
+                                  
+                                  </div>
+                              </div>
+                            </div>      
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <p>* will create the model of the collection and samples if there are ones</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-1 col-md-1">
+                        <legend class="txtcenter">Or</legend>
+                      </div>
+                      <div class="col-lg-6 col-md-6 pam">
+                        <div class="col-lg-12 mbs" ng-repeat="(key, value) in attribs">   
+                            <input type="radio" name="mainAttribute" style="cursor: help"title="Choose an identifier attribute" ng-model="attribs[key].mainAttribute" value="true" />        
+                            <input type="text"  ng-blur="fillAttribute(key,attribute[key])" ng-model="attribute[key]" placeholder="Attribute key {{$index+1}}" name="attributeKey{{$index+1}}" class="form-control inline-block w50"/>
+                            <input type="button" class="form-control btn btn-danger inline-block w20" value="X" ng-click="removeAttribute(key)"/> 
+                            <div class="inline-block w20">
+                              <ng-visibility-drop-down-btn entity="key" type="attributeCollection" ></ng-visibility-drop-down-btn>
+                            </div>
+                        </div>
+                        <hr ng-show="attribs.length != undefined" class="clear:both">
+                        <div class="col-lg-12">
+                            <button class="btn  btn-info btn-block" ng-click="addAttribute()">
+                              <span class="pull-left" >Add an attribute</span>
+                              <span class="glyphicon glyphicon-plus iconAjout"></span>
+                            </button>
+                        </div>
+                        <div class="col-lg-12">
+                          <p>* create the model manually with no samples</p>
+                        </div>
+                      </div>
+                 
+                    
                    
                   </div>
+            </div>
                   
                  
                   <div class="form-group ">
-                    <div class="col-lg-6 col-lg-offset-3 mtl">
-                      <button type="submit" class="btn btn-primary col-lg-7">Submit</button>
+                    <div class="col-lg-6 col-lg-offset-3 ">
+                      <button ng-click="addCollection()" type="submit" class="btn btn-primary col-lg-7">Submit</button>
                       <button type="reset" class="btn btn-default col-lg-4 col-lg-offset-1">Cancel</button>
                      
                     </div>
                   </div>
-                </fieldset>
-              </form>
-            </div>
+                
+              
+            
           </div>
           
         </div>
-      </div>
-	</div>
+      </fieldset>
 </form>

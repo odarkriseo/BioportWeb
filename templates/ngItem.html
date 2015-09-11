@@ -1,18 +1,25 @@
 
 	<div class="col-lg-8 col-md-9 col-sm-9 ng-resizable ui-widget-content">
-			<div ng-show="item" class="itemSelectedHeader">
-				<ng-pin item-selected="item" type="type"></ng-pin>
-			</div>	
-			<div ng-hide="item" >
-				<div class="itemSelectedHeader col-lg-12 col-md-12 col-sm-12">
-					<h1>{{itemFormHeaderTitle}}</h1>
-				  	<p>{{itemFormHeaderContent}}</p>
-				  	<p><button class="btn btn-info btn-sm" href=""><span class="glyphicon glyphicon-floppy-open pmr"></span> Import CSV</button></p>
-				</div>
-				<ng-include src="'templates/ngForm-' +type.type + '.html'" ></ng-include>
-
+			<div  class="itemSelectedHeader">
+					<ng-visibility-drop-down-btn entity="itemSelected" type="{{globalInfo.type}}"></ng-visibility-drop-down-btn>
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 itemSelectedHeaderDivImg" >
+							<img src="{{itemSelected.image || imageDefault }}" alt="" class="itemSelectedHeaderImg"/>
+						</div>
+						<div class="col-lg-9 col-md-9 col-sm-9 itemSelectedHeaderContent">
+							<h1 ng-if="itemSelected != null">{{itemFormHeaderTitle}}</h1>
+							<div ng-if="itemSelected == null" class="form-group ptl prm">
+			                    <div class="col-lg-11">
+			                      <input type="text" required class="form-control mbs" ng-model="nameCollection" placeholder="{{globalInfo.type | capitalize}} name">
+			                    </div>
+			                </div>
+			                <ng-clear ng-if="itemSelected == null"></ng-clear> 
+						  	<p><span ng-class="{'ion-social-dropbox' : globalInfo.type == 'sample','ion-erlenmeyer-flask': globalInfo.type == 'collection'}"></span> {{itemFormHeaderContent}}</p>
+							<button ng-show="itemSelected != null" class="btn btn-default btn-sm" ><span class="glyphicon glyphicon-floppy-save pmr"></span> Export CSV</button>
+						</div>
+					</div>
+					
 			</div>
-			
-
+			<ng-include src="'templates/ngForm-' + globalInfo.type + '.html'" ></ng-include>
 	</div>
 
